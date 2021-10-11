@@ -23,6 +23,10 @@ const Verify = () => {
     try {
       const res = await Axios.post("/auth/verify", data);
       console.log(res);
+      if (res.status === 200) {
+        alert(res.data.msg);
+        window.location.href = "/auth/login";
+      }
       setLoading(false);
     } catch (err) {
       console.log(err);

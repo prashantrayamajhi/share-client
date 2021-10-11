@@ -1,7 +1,8 @@
-import { useState } from "react";
 import Layout from "./../../components/Layout";
 import styles from "./../../styles/auth.module.scss";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import { checkJwtToken } from "./../../helper/jwt";
 import axios from "./../../api/server";
 
 import { ToastContainer, toast } from "react-toastify";
@@ -16,6 +17,12 @@ const Signup = () => {
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState(null);
 
+  useEffect(() => {
+    if (checkJwtToken()) {
+      window.location.href = "/";
+    }
+  });
+
   if (err) {
     toast.error(err, {
       theme: "colored",
@@ -24,6 +31,7 @@ const Signup = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const data = {
       name,
       email,
@@ -34,14 +42,15 @@ const Signup = () => {
 
     try {
       const res = await axios.post("/auth/signup", data);
-      console.log(res);
       if (res.status === 201) {
         window.location.href = "/verify/" + res.data.data.email;
       }
+      setLoading(false);
     } catch (err) {
       console.log(err);
       setErr(err.response.data.err);
       setErr(null);
+      setLoading(false);
     }
   };
   return (
@@ -91,7 +100,9 @@ const Signup = () => {
             />
           </div>
           <div className={styles.btn}>
-            <button type="submit">Signup</button>
+            <button type="submit" disabled={loading}>
+              Signup
+            </button>
           </div>
           <div className={styles.footer}>
             <p>

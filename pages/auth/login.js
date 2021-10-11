@@ -1,7 +1,8 @@
 import Layout from "./../../components/Layout";
 import styles from "./../../styles/auth.module.scss";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { checkJwtToken } from "./../../helper/jwt";
 import Axios from "./../../api/server";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -11,6 +12,12 @@ const Login = () => {
 
   const [err, setErr] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (checkJwtToken()) {
+      window.location.href = "/";
+    }
+  });
 
   if (err) {
     toast.error(err, {
@@ -27,7 +34,7 @@ const Login = () => {
     };
     try {
       const res = await Axios.post("/auth/login", data);
-      console.log(res);
+      localStorage.setItem("token", res.data.data.token);
       setLoading(false);
     } catch (err) {
       console.log(err);

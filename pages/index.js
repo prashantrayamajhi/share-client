@@ -1,10 +1,18 @@
-import Head from "next/head";
-import Image from "next/image";
+import Layout from "./../components/Layout";
+import { useEffect } from "react";
+import { checkJwtToken } from "./../helper/jwt";
 
 export default function Home() {
+  useEffect(() => {
+    if (!checkJwtToken()) {
+      window.location.href = "/auth/login";
+    }
+  }, []);
   return (
     <>
-      <div className="container mx-auto"></div>
+      <Layout>
+        <h1>Logged in</h1>
+      </Layout>
     </>
   );
 }
