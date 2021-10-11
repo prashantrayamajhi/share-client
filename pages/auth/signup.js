@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { checkJwtToken } from "./../../helper/jwt";
 import axios from "./../../api/server";
+import { useRouter } from "next/router";
 
 import { ToastContainer, toast } from "react-toastify";
 
@@ -16,10 +17,11 @@ const Signup = () => {
 
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState(null);
+  const router = useRouter();
 
   useEffect(() => {
     if (checkJwtToken()) {
-      window.location.href = "/";
+      router.replace("/");
     }
   });
 

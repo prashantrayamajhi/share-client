@@ -6,7 +6,6 @@ const checkJwtToken = () => {
     if (token) {
       if (token === "undefined") {
         logout();
-        return (window.location.href = "/");
       }
       const decoded = jwt_decode(token);
       const current_time = new Date().getTime() / 1000;

@@ -6,16 +6,19 @@ import { checkJwtToken } from "./../../helper/jwt";
 import Axios from "./../../api/server";
 import { ToastContainer, toast } from "react-toastify";
 
+import { useRouter } from "next/router";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const [err, setErr] = useState(null);
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     if (checkJwtToken()) {
-      window.location.href = "/";
+      router.replace("/");
     }
   });
 
@@ -35,6 +38,7 @@ const Login = () => {
     try {
       const res = await Axios.post("/auth/login", data);
       localStorage.setItem("token", res.data.data.token);
+      window.location.href = "/";
       setLoading(false);
     } catch (err) {
       console.log(err);
