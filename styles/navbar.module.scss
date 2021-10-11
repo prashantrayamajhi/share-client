@@ -1,0 +1,26 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.3);
+  .brand {
+    cursor: pointer;
+    .logo {
+      font-size: 1.6rem;
+    }
+  }
+  .links {
+    display: flex;
+    align-items: center;
+    .link {
+      margin-left: 3rem;
+      a,
+      p {
+        text-decoration: none;
+        color: #000;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -7,9 +7,11 @@ const Navbar = () => {
   const router = useRouter();
   return (
     <>
-      <nav>
+      <nav className={styles.navbar}>
         <div className={styles.brand}>
-          <h3 className={styles.logo}>LOGO</h3>
+          <Link href="/">
+            <h3 className={styles.logo}>LOGO</h3>
+          </Link>
         </div>
         <div className={styles.links}>
           <div className={styles.link}>
