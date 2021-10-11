@@ -35,6 +35,9 @@ const Signup = () => {
     try {
       const res = await axios.post("/auth/signup", data);
       console.log(res);
+      if (res.status === 201) {
+        window.location.href = "/verify/" + res.data.data.email;
+      }
     } catch (err) {
       console.log(err);
       setErr(err.response.data.err);
