@@ -9,8 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@tailwindcss/forms": "^0.3.4",
-    "@tailwindcss/typography": "^0.4.1",
     "@zeit/next-sass": "^1.0.1",
     "next": "11.1.2",
     "react": "17.0.2",
@@ -21,7 +19,6 @@
     "autoprefixer": "^9",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
-    "postcss": "^7",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+    "postcss": "^7"
   }
 }
