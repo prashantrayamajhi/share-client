@@ -4,6 +4,8 @@ import styles from "./../../styles/auth.module.scss";
 import Link from "next/link";
 import axios from "./../../api/server";
 
+import { ToastContainer, toast } from "react-toastify";
+
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -13,6 +15,12 @@ const Signup = () => {
 
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState(null);
+
+  if (err) {
+    toast.error(err, {
+      theme: "colored",
+    });
+  }
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -28,13 +36,14 @@ const Signup = () => {
       const res = await axios.post("/auth/signup", data);
       console.log(res);
     } catch (err) {
-      console.log(err.response.data.err);
+      console.log(err);
       setErr(err.response.data.err);
       setErr(null);
     }
   };
   return (
     <Layout title="Signup">
+      <ToastContainer />
       <div className={styles.wrapper}>
         <form onSubmit={handleFormSubmit}>
           <h3>Signup</h3>
