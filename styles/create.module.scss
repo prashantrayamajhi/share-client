@@ -1,0 +1,63 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 4rem 0;
+  form {
+    max-width: 95%;
+    width: 38rem;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem 1.5rem 1.8rem;
+    @media (max-width: 768px) {
+      padding: 1.5rem 1rem 1.8rem;
+    }
+    h3 {
+      font-size: 1.6rem;
+    }
+    .input {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1rem;
+      label {
+        margin-bottom: 0.4rem;
+      }
+      input,
+      textarea {
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        border-radius: 0.3rem;
+        font-size: 1rem;
+        padding: 0.6rem 0.5rem;
+      }
+    }
+    .input.private {
+      flex-direction: row;
+      align-items: center;
+      label {
+        margin-bottom: 0;
+        cursor: pointer;
+      }
+      input {
+        margin-left: 0.5rem;
+        cursor: pointer;
+        margin-top: 0.15rem;
+      }
+    }
+    .btn {
+      margin-top: 1.5rem;
+      button {
+        font-size: 1rem;
+        outline: none;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        padding: 0.6rem 0.6rem 0.5rem;
+        width: 100%;
+        background-color: #fff;
+        cursor: pointer;
+        border-radius: 0.2rem;
+        transition: 0.2s all ease;
+        &:hover {
+          background-color: #000;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

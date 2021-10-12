@@ -4,10 +4,16 @@
   align-items: center;
   padding: 1rem 2rem;
   box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.3);
+  @media (max-width: 500px) {
+    padding: 1rem;
+  }
   .brand {
     cursor: pointer;
     .logo {
       font-size: 1.6rem;
+      @media (max-width: 500px) {
+        font-size: 1.4rem;
+      }
     }
   }
   .links {
@@ -15,11 +21,17 @@
     align-items: center;
     .link {
       margin-left: 3rem;
+      @media (max-width: 500px) {
+        margin-left: 1rem;
+      }
       a,
       p {
         text-decoration: none;
         color: #000;
         cursor: pointer;
+        @media (max-width: 500px) {
+          font-size: 0.9rem;
+        }
       }
     }
   }

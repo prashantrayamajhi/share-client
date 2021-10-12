@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <Layout>
         <Navbar />
-        <h1>Logged in</h1>
+        <h1>Home Page</h1>
       </Layout>
     </>
   );
