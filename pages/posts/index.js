@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { checkJwtToken } from "../../helper/jwt";
 import { useRouter } from "next/router";
 import Axios from "./../../api/server";
+import PostCard from "../../components/PostCard";
+import styles from "./../../styles/posts.module.scss";
 
 const Post = () => {
   const [config, setConfig] = useState(null);
@@ -37,7 +39,15 @@ const Post = () => {
     <>
       <Navbar />
       <Layout title="Posts">
-        <h2>Post List</h2>
+        <div className={styles.wrapper}>
+          <h2>My Posts</h2>
+          <div className={styles.postsContainer}>
+            {posts &&
+              posts.map((post, index) => {
+                return <PostCard post={post} key={index} />;
+              })}
+          </div>
+        </div>
       </Layout>
     </>
   );
