@@ -8,6 +8,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Axios from "./../../api/server";
 import { useRouter } from "next/router";
+const ReactQuill =
+  typeof window === "object" ? require("react-quill") : () => false;
+import "react-quill/dist/quill.snow.css";
 
 const Post = () => {
   const router = useRouter();
@@ -83,14 +86,15 @@ const Post = () => {
             </div>
             <div className={styles.input}>
               <label htmlFor="content">Content</label>
-              <textarea
-                type="text"
-                placeholder="Enter the content"
-                id="content"
+              <ReactQuill
+                style={{
+                  height: "20rem",
+                  marginBottom: "3rem",
+                }}
+                theme="snow"
                 value={content}
-                onChange={(e) => setContent(e.target.value)}
-                rows={8}
-              ></textarea>
+                onChange={(e) => setContent(e)}
+              />
             </div>
             <div className={styles.input}>
               <label htmlFor="img">Image</label>

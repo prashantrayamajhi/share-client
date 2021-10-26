@@ -25,7 +25,12 @@ const Post = () => {
   return (
     <>
       <Navbar />
-      {post && <Layout title={post.title}></Layout>}
+      {post && (
+        <Layout title={post.title}>
+          <img style={{ width: "100%" }} src={post.img} alt={post.title} />
+          <h1>{post.title}</h1>
+        </Layout>
+      )}
     </>
   );
 };
