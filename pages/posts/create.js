@@ -58,6 +58,7 @@ const Post = () => {
         });
         setTitle("");
         setContent("");
+        setDescription("");
         setImg("");
         setIsPrivate("");
       }
