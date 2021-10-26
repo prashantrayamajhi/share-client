@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./../styles/navbar.module.scss";
-import { logout } from "./../helper/jwt";
+import { logout, checkJwtToken } from "./../helper/jwt";
 import { useRouter } from "next/router";
 
 const Navbar = () => {
@@ -19,21 +19,32 @@ const Navbar = () => {
               <a>Home</a>
             </Link>
           </div>
-          <div className={styles.link}>
-            <Link href="/posts">
-              <a>Post</a>
-            </Link>
-          </div>
-          <div className={styles.link}>
-            <p
-              onClick={() => {
-                logout();
-                router.replace("/auth/login");
-              }}
-            >
-              Logout
-            </p>
-          </div>
+          {checkJwtToken() ? (
+            <>
+              <div className={styles.link}>
+                <Link href="/posts">
+                  <a>Post</a>
+                </Link>
+              </div>
+
+              <div className={styles.link}>
+                <p
+                  onClick={() => {
+                    logout();
+                    router.replace("/auth/login");
+                  }}
+                >
+                  Logout
+                </p>
+              </div>
+            </>
+          ) : (
+            <div className={styles.link}>
+              <Link href="/auth/login">
+                <a>Login</a>
+              </Link>
+            </div>
+          )}
         </div>
       </nav>
     </>
