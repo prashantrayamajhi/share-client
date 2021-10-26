@@ -17,6 +17,7 @@ const Post = () => {
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [description, setDescription] = useState("");
   const [img, setImg] = useState("");
   const [isPrivate, setIsPrivate] = useState(false);
   const [config, setConfig] = useState(null);
@@ -46,6 +47,7 @@ const Post = () => {
       const data = {
         title,
         content,
+        description,
         img,
         isPrivate,
       };
@@ -83,6 +85,17 @@ const Post = () => {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
+            </div>
+            <div className={styles.input}>
+              <label htmlFor="description">Description</label>
+              <textarea
+                type="text"
+                placeholder="Enter a short description"
+                id="description"
+                rows={5}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              ></textarea>
             </div>
             <div className={styles.input}>
               <label htmlFor="content">Content</label>
