@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Axios from "./../../api/server";
 import Layout from "../../components/Layout";
 import Navbar from "../../components/Navbar";
+import marked from "marked";
 
 const Post = () => {
   const router = useRouter();
@@ -29,6 +30,11 @@ const Post = () => {
         <Layout title={post.title}>
           <img style={{ width: "100%" }} src={post.img} alt={post.title} />
           <h1>{post.title}</h1>
+          <article
+            dangerouslySetInnerHTML={{
+              __html: marked(post.content),
+            }}
+          ></article>
         </Layout>
       )}
     </>
