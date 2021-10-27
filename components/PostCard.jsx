@@ -13,8 +13,14 @@ const PostCard = ({ post }) => {
         <Link href={"/posts/" + post._id}>
           <h2>{post.title}</h2>
         </Link>
-        <p className={styles.date}>1st September 2022</p>
+        <div className={styles.meta}>
+          <p className={styles.name}>Prashant Rayamajhi</p>
+          <p className={styles.date}>1st September 2022</p>
+        </div>
         <p className={styles.description}>{post.description}</p>
+        <Link href={"/posts/" + post._id}>
+          <a className={styles.btn}>View Details</a>
+        </Link>
       </div>
     </div>
   );
