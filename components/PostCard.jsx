@@ -1,7 +1,29 @@
 import styles from "./../styles/card.module.scss";
 import Link from "next/link";
+import Axios from "./../api/server";
+import { useState, useEffect } from "react";
 
-const PostCard = ({ post }) => {
+const PostCard = ({ post, isAuth = false }) => {
+  const [config, setConfig] = useState(null);
+
+  useEffect(() => {
+    const config = {
+      headers: {
+        // bearer token
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    };
+    setConfig(config);
+  }, []);
+
+  const deletePost = async (id) => {
+    try {
+      await Axios.delete(`/user/posts/${id}`, config);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className={styles.card}>
       <div className={styles.img}>
@@ -11,7 +33,18 @@ const PostCard = ({ post }) => {
       </div>
       <div className={styles.details}>
         <Link href={"/posts/" + post._id}>
-          <h2>{post.title}</h2>
+          <>
+            <h2>{post.title}</h2>
+            {isAuth && (
+              <p
+                onClick={() => {
+                  deletePost(post._id);
+                }}
+              >
+                Delete
+              </p>
+            )}
+          </>
         </Link>
         <div className={styles.meta}>
           <p className={styles.name}>Prashant Rayamajhi</p>

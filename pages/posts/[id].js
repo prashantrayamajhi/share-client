@@ -12,8 +12,6 @@ const Post = () => {
     const fetchPost = async () => {
       try {
         const res = await Axios.get("/posts/" + router.query.id);
-        console.log(res.data.data);
-
         setPost(res.data.data);
       } catch (err) {
         console.log(err);

@@ -48,7 +48,7 @@ const Post = () => {
           <div className={styles.postsContainer}>
             {posts &&
               posts.map((post, index) => {
-                return <PostCard post={post} key={index} />;
+                return <PostCard post={post} key={index} isAuth={true} />;
               })}
           </div>
         </div>
