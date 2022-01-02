@@ -25,12 +25,11 @@ const PostCard = ({ post, isAuth = false }) => {
     }
   };
 
-  console.log(post);
   return (
     <div className={styles.card}>
       <div className={styles.img}>
         <Link href={"/posts/" + post._id}>
-          <img src={post} alt={post.title} />
+          <img src={post.images[0]} alt={post.title} />
         </Link>
       </div>
       <div className={styles.details}>

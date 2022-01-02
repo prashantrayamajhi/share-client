@@ -83,11 +83,14 @@ const Post = () => {
     e.preventDefault();
     try {
       const formData = new FormData();
-
       formData.append("title", title);
       formData.append("content", content);
       formData.append("description", description);
-      formData.append("img", img);
+      if (img) {
+        for (let i = 0; i < img.length; i++) {
+          formData.append("images", img[i]);
+        }
+      }
       formData.append("isPrivate", isPrivate);
       const res = await Axios.post("/posts", formData, config);
       if (res.status === 201) {
@@ -97,7 +100,8 @@ const Post = () => {
         setTitle("");
         setContent("");
         setDescription("");
-        setImg("");
+        setImg([]);
+        setDisplayImg([]);
         setIsPrivate("");
       }
     } catch (err) {
