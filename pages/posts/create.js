@@ -82,14 +82,14 @@ const Post = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const data = {
-        title,
-        content,
-        description,
-        img,
-        isPrivate,
-      };
-      const res = await Axios.post("/posts", data, config);
+      const formData = new FormData();
+
+      formData.append("title", title);
+      formData.append("content", content);
+      formData.append("description", description);
+      formData.append("img", img);
+      formData.append("isPrivate", isPrivate);
+      const res = await Axios.post("/posts", formData, config);
       if (res.status === 201) {
         toast.success("Idea posted successfully", {
           theme: "colored",
