@@ -57,9 +57,12 @@ const Post = () => {
   const handleRemoveImage = (newImg) => {
     setDisplayImg(displayImg.filter((image) => image !== newImg));
     newImg = [newImg];
-    const updatedImg = newImg.filter(
+    let updatedImg = newImg.filter(
       (image) => img.indexOf(image) !== displayImg.indexOf(img)
     );
+    if (updatedImg || updatedImg.length <= 0) {
+      updatedImg = [];
+    }
     setImg(updatedImg);
   };
 
