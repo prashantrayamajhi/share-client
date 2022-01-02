@@ -18,7 +18,8 @@ const Post = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [description, setDescription] = useState("");
-  const [img, setImg] = useState("");
+  const [img, setImg] = useState([]);
+  const [displayImg, setDisplayImg] = useState([]);
   const [isPrivate, setIsPrivate] = useState(false);
   const [config, setConfig] = useState(null);
   const [error, setError] = useState(null);
@@ -41,6 +42,40 @@ const Post = () => {
     }
   }, []);
 
+  const image = [];
+
+  const handleFileChange = (e) => {
+    const files = Array.from(e.target.files);
+    files.forEach((img) => {
+      img = URL.createObjectURL(img);
+      image.push(img);
+    });
+    setImg(files);
+    setDisplayImg(image);
+  };
+
+  const handleRemoveImage = (newImg) => {
+    setDisplayImg(displayImg.filter((image) => image !== newImg));
+    newImg = [newImg];
+    const updatedImg = newImg.filter(
+      (image) => img.indexOf(image) !== displayImg.indexOf(img)
+    );
+    setImg(updatedImg);
+  };
+
+  const mappedDisplayImage = displayImg?.map((img, index) => {
+    return (
+      <img
+        key={index}
+        src={img}
+        alt=""
+        onClick={() => {
+          handleRemoveImage(img);
+        }}
+      />
+    );
+  });
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -51,7 +86,7 @@ const Post = () => {
         img,
         isPrivate,
       };
-      const res = await Axios.post("/user/posts", data, config);
+      const res = await Axios.post("/posts", data, config);
       if (res.status === 201) {
         toast.success("Idea posted successfully", {
           theme: "colored",
@@ -111,14 +146,19 @@ const Post = () => {
               />
             </div>
             <div className={styles.input}>
-              <label htmlFor="img">Image</label>
+              <label htmlFor="private">Private</label>
               <input
-                type="text"
-                placeholder="Enter an image link"
-                id="img"
-                value={img}
-                onChange={(e) => setImg(e.target.value)}
+                type="file"
+                name="img"
+                multiple
+                onChange={(e) => {
+                  handleFileChange(e);
+                }}
               />
+
+              {displayImg.length > 0 && (
+                <div className={styles.displayImg}>{mappedDisplayImage}</div>
+              )}
             </div>
             <div className={classnames(styles.input, styles.private)}>
               <label htmlFor="private">Private</label>

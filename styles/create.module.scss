@@ -27,6 +27,17 @@
         font-size: 1rem;
         padding: 0.6rem 0.5rem;
       }
+      .displayImg {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        margin-top: 1rem;
+        grid-gap: 1rem;
+        img {
+          object-fit: contain;
+          width: 100%;
+          cursor: pointer;
+        }
+      }
     }
     .input.private {
       flex-direction: row;
