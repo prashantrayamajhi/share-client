@@ -6,6 +6,8 @@ import { checkJwtToken } from "./../../helper/jwt";
 import axios from "./../../api/server";
 import { useRouter } from "next/router";
 
+import Navbar from "./../../components/Navbar/Auth";
+
 import { ToastContainer, toast } from "react-toastify";
 
 const Signup = () => {
@@ -58,6 +60,7 @@ const Signup = () => {
   return (
     <Layout title="Signup">
       <ToastContainer />
+      <Navbar page="signup" />
       <div className={styles.wrapper}>
         <form onSubmit={handleFormSubmit}>
           <h3>Signup</h3>
