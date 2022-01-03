@@ -26,24 +26,27 @@
     align-items: center;
     .link {
       margin-left: 3rem;
+      display: flex;
+      align-items: center;
       @media (max-width: 500px) {
         margin-left: 1rem;
       }
-      a,
       p {
         color: $support;
         font-size: 0.95rem;
         font-weight: 400;
-        user-select: none;
+        margin-right: 0.5rem;
         @media (max-width: 500px) {
           font-size: 0.9rem;
         }
-        a {
-          text-decoration: none;
-          cursor: pointer;
-          color: $primary;
-          font-weight: 600;
-        }
+      }
+      a {
+        user-select: none;
+        text-decoration: none;
+        cursor: pointer;
+        color: $primary;
+        font-weight: 600;
+        font-size: 0.95rem;
       }
     }
   }

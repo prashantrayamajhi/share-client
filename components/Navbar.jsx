@@ -10,7 +10,9 @@ const Navbar = () => {
       <nav className={styles.navbar}>
         <div className={styles.brand}>
           <Link href="/">
-            <h3 className={styles.logo}>LOGO</h3>
+            <h3 className={styles.logo}>
+              AVA<span>SAR</span>
+            </h3>
           </Link>
         </div>
         <div className={styles.links}>
