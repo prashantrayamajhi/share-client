@@ -63,60 +63,68 @@ const Signup = () => {
       <Navbar page="signup" />
       <div className={styles.wrapper}>
         <form onSubmit={handleFormSubmit}>
-          <h3>Signup</h3>
-          <div className={styles.input}>
-            <input
-              type="text"
-              placeholder="Enter your full name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-          <div className={styles.input}>
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className={styles.input}>
-            <input
-              type="text"
-              placeholder="Enter your address"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-            />
-          </div>
-          <div className={styles.input}>
-            <input
-              type="password"
-              placeholder="Create a password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div className={styles.input}>
-            <input
-              type="password"
-              placeholder="Confirm password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </div>
-          <div className={styles.btn}>
-            <button type="submit" disabled={loading}>
-              Signup
-            </button>
+          <h2>Signup</h2>
+
+          <div className={styles.inputWrapper}>
+            <div className={styles.input}>
+              <input
+                type="text"
+                placeholder="Enter your full name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div className={styles.input}>
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className={styles.input}>
+              <input
+                type="text"
+                placeholder="Enter your address"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+              />
+            </div>
+            <div className={styles.input}>
+              <input
+                type="password"
+                placeholder="Create a password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div className={styles.input}>
+              <input
+                type="password"
+                placeholder="Confirm password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+            </div>
+            <div className={styles.btn}>
+              <button type="submit" disabled={loading}>
+                Signup
+              </button>
+            </div>
           </div>
           <div className={styles.footer}>
+            <Link href="/auth/login">
+              <a className={styles.bottomTxt}>Back To Signin Page</a>
+            </Link>
+          </div>
+          {/* <div className={styles.footer}>
             <p>
               Already have an account ?{" "}
               <Link href="/auth/login">
                 <a>Login</a>
               </Link>
             </p>
-          </div>
+          </div> */}
         </form>
       </div>
     </Layout>
