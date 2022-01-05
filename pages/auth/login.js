@@ -59,35 +59,39 @@ const Login = () => {
       <Navbar page="login" />
       <div className={styles.wrapper}>
         <form onSubmit={handleFormSubmit}>
-          <h3>Login</h3>
-          <div className={styles.input}>
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+          <h2>Sign in</h2>
+          <div className={styles.inputWrapper}>
+            <div className={styles.input}>
+              <input
+                type="email"
+                placeholder="E-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className={styles.input}>
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div className={styles.btn}>
+              <button type="submit" disabled={loading}>
+                Sign in to Avasar
+              </button>
+            </div>
           </div>
-          <div className={styles.input}>
-            <input
-              type="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div className={styles.btn}>
-            <button type="submit" disabled={loading}>
-              Login
-            </button>
-          </div>
+
           <div className={styles.footer}>
-            <p>
-              Don't have an account ?{" "}
-              <Link href="/auth/signup">
-                <a>Signup</a>
-              </Link>
-            </p>
+            <Link href="/auth/signup">
+              <a className={styles.centerTxt}>Forgot your password ?</a>
+            </Link>
+
+            <Link href="/auth/signup">
+              <a className={styles.bottomTxt}>Back to Home Page</a>
+            </Link>
           </div>
         </form>
       </div>
