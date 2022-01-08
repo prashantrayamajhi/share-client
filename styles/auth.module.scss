@@ -117,12 +117,16 @@
       .centerTxt {
         display: block;
         text-align: center;
+        margin-bottom: 3rem;
+        @media (max-width: 640px) {
+          margin-bottom: 1rem;
+        }
       }
       .bottomTxt {
         display: block;
         text-align: end;
         margin-bottom: 1rem;
-        padding: 3rem 2rem 2rem;
+        padding: 0rem 2rem 2rem;
         @media (max-width: 640px) {
           text-align: center;
         }

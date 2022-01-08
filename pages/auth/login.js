@@ -89,7 +89,7 @@ const Login = () => {
               <a className={styles.centerTxt}>Forgot your password ?</a>
             </Link>
 
-            <Link href="/auth/signup">
+            <Link href="/">
               <a className={styles.bottomTxt}>Back to Home Page</a>
             </Link>
           </div>
