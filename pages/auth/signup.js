@@ -5,19 +5,37 @@ import { useState, useEffect } from "react";
 import { checkJwtToken } from "./../../helper/jwt";
 import axios from "./../../api/server";
 import { useRouter } from "next/router";
+import { useFormik } from "formik";
 
 import Navbar from "./../../components/Navbar/Auth";
 
 import { ToastContainer, toast } from "react-toastify";
+import First from "../../components/Signup/First";
+import Second from "../../components/Signup/Second";
 
 const Signup = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [address, setAddress] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [address, setAddress] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [confirmPassword, setConfirmPassword] = useState("");
+
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      address: "",
+      password: "",
+      confirmPassword: "",
+      organizationName: "",
+      website: "",
+      companySector: "",
+      panNumber: "",
+    },
+  });
 
   const [loading, setLoading] = useState(false);
+  const [step, setStep] = useState(1);
   const [err, setErr] = useState(null);
   const router = useRouter();
 
@@ -37,11 +55,15 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true);
     const data = {
-      name,
-      email,
-      address,
-      password,
-      confirmPassword,
+      name: formik.values.name,
+      email: formik.values.email,
+      address: formik.values.address,
+      password: formik.values.password,
+      confirmPassword: formik.values.confirmPassword,
+      organizationName: formik.values.organizationName,
+      website: formik.values.website,
+      companySector: formik.values.companySector,
+      panNumber: formik.values.panNumber,
     };
 
     try {
@@ -57,6 +79,14 @@ const Signup = () => {
       setLoading(false);
     }
   };
+
+  const displayStep = () => {
+    if (step === 1) {
+      return <First formik={formik} setStep={setStep} />;
+    } else {
+      return <Second formik={formik} setStep={setStep} loading={loading} />;
+    }
+  };
   return (
     <Layout title="Signup">
       <ToastContainer />
@@ -64,67 +94,12 @@ const Signup = () => {
       <div className={styles.wrapper}>
         <form onSubmit={handleFormSubmit}>
           <h2>Signup</h2>
-
-          <div className={styles.inputWrapper}>
-            <div className={styles.input}>
-              <input
-                type="text"
-                placeholder="Enter your full name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-            <div className={styles.input}>
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div className={styles.input}>
-              <input
-                type="text"
-                placeholder="Enter your address"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-              />
-            </div>
-            <div className={styles.input}>
-              <input
-                type="password"
-                placeholder="Create a password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <div className={styles.input}>
-              <input
-                type="password"
-                placeholder="Confirm password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
-            </div>
-            <div className={styles.btn}>
-              <button type="submit" disabled={loading}>
-                Signup
-              </button>
-            </div>
-          </div>
+          {displayStep()}
           <div className={styles.footer}>
             <Link href="/auth/login">
               <a className={styles.bottomTxt}>Back To Signin Page</a>
             </Link>
           </div>
-          {/* <div className={styles.footer}>
-            <p>
-              Already have an account ?{" "}
-              <Link href="/auth/login">
-                <a>Login</a>
-              </Link>
-            </p>
-          </div> */}
         </form>
       </div>
     </Layout>
