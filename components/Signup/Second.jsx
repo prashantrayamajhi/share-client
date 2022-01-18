@@ -1,5 +1,8 @@
 import styles from "./../../styles/auth.module.scss";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+
 const Second = ({ formik, setStep, loading }) => {
   return (
     <>
@@ -8,13 +11,13 @@ const Second = ({ formik, setStep, loading }) => {
         style={{ marginBottom: "-2.5rem", marginTop: "2rem", width: "90%" }}
       >
         <div className={styles.headingWrapper}>
-          <span
+          <FontAwesomeIcon
+            icon={faArrowLeft}
+            className={styles.icon}
             onClick={() => {
               setStep(1);
             }}
-          >
-            Back
-          </span>
+          />
           <p>
             You can skip these fields if you don't wish to verify your account,
             you can submit these details after signing up

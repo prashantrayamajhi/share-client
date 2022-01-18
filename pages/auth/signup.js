@@ -9,6 +9,9 @@ import { useFormik } from "formik";
 
 import Navbar from "./../../components/Navbar/Auth";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+
 import { ToastContainer, toast } from "react-toastify";
 import First from "../../components/Signup/First";
 import Second from "../../components/Signup/Second";
@@ -96,9 +99,14 @@ const Signup = () => {
           <h2>Signup</h2>
           {displayStep()}
           <div className={styles.footer}>
-            <Link href="/auth/login">
-              <a className={styles.bottomTxt}>Back To Signin Page</a>
-            </Link>
+            <div className={styles.bottomTxt}>
+              <Link href="/auth/login">
+                <a className={styles.link}>
+                  <FontAwesomeIcon icon={faArrowLeft} className={styles.icon} />
+                  <span>Back To Signin Page</span>
+                </a>
+              </Link>
+            </div>
           </div>
         </form>
       </div>

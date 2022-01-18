@@ -8,6 +8,9 @@ import { ToastContainer, toast } from "react-toastify";
 
 import Navbar from "./../../components/Navbar/Auth";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+
 import { useRouter } from "next/router";
 
 const Login = () => {
@@ -89,9 +92,18 @@ const Login = () => {
               <a className={styles.centerTxt}>Forgot your password ?</a>
             </Link>
 
-            <Link href="/">
+            {/* <Link href="/">
               <a className={styles.bottomTxt}>Back to Home Page</a>
-            </Link>
+            </Link> */}
+
+            <div className={styles.bottomTxt}>
+              <Link href="/">
+                <a className={styles.link}>
+                  <FontAwesomeIcon icon={faArrowLeft} className={styles.icon} />
+                  <span>Back To Home Page</span>
+                </a>
+              </Link>
+            </div>
           </div>
         </form>
       </div>

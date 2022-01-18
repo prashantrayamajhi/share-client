@@ -48,8 +48,10 @@
           margin-top: 1rem;
         }
       }
-      span {
+      .icon {
         cursor: pointer;
+        width: 2rem;
+        color: $primary;
       }
     }
     .inputWrapper {
@@ -129,6 +131,15 @@
         padding: 0rem 2rem 2rem;
         @media (max-width: 640px) {
           text-align: center;
+        }
+        .link {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          .icon {
+            width: 1rem;
+            margin-right: 0.6rem;
+          }
         }
       }
     }
