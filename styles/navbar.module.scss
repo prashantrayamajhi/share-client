@@ -10,18 +10,7 @@
   @media (max-width: 500px) {
     padding: 1rem;
   }
-  .brand {
-    cursor: pointer;
-    .logo {
-      font-size: 1.6rem;
-      @media (max-width: 500px) {
-        font-size: 1.4rem;
-      }
-      span {
-        color: $primary;
-      }
-    }
-  }
+
   .links {
     display: flex;
     align-items: center;

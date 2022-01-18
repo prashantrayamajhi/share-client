@@ -1,19 +1,12 @@
 import Link from "next/link";
 import styles from "./../../styles/navbar.module.scss";
-import { useRouter } from "next/router";
+import BrandLogo from "./../Utils/Brand/Logo";
 
 const Navbar = ({ page }) => {
-  const router = useRouter();
   return (
     <>
       <nav className={styles.navbar}>
-        <div className={styles.brand}>
-          <Link href="/">
-            <h3 className={styles.logo}>
-              AVA<span>SAR</span>
-            </h3>
-          </Link>
-        </div>
+        <BrandLogo />
         <div className={styles.links}>
           <div className={styles.link}>
             <p>{page === "login" ? "Don't " : "Already "} have an account ? </p>{" "}

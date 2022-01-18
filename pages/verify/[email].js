@@ -4,6 +4,10 @@ import Axios from "./../../api/server";
 import { useState } from "react";
 import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
+import styles from "./../../styles/verify.module.scss";
+import Image from "next/image";
+import VerifyImg from "./../../images/verification.png";
+import BrandLogo from "./../../components/Utils/Brand/Logo";
 
 const Verify = () => {
   const [token, setToken] = useState("");
@@ -38,34 +42,53 @@ const Verify = () => {
   return (
     <Layout title={`Verify | ${router.query.email}`}>
       <ToastContainer />
-      <h2>Verify your account</h2>
-      <p>
-        Enter the code that we sent to <span>{router.query.email}</span>
-      </p>
-      <input
-        type="text"
-        value={token}
-        placeholder="Verification code"
-        onChange={(e) => setToken(e.target.value)}
-      />
-      <button type="button" onClick={handleSubmit} disabled={loading}>
-        Verify
-      </button>
-      <div>
-        <p>
-          Didn't get a code ? <span>Resend token</span>
-        </p>
-      </div>
-      <div>
-        <p>
-          <Link href="/auth/login">
-            <a>Login</a>
-          </Link>{" "}
-          or{" "}
-          <Link href="/auth/signup">
-            <a>Signup</a>
-          </Link>
-        </p>
+      <div className={styles.verifyWrapper}>
+        <div className={styles.support}>
+          <BrandLogo />
+          <Image
+            src={VerifyImg}
+            alt="Verify"
+            className={styles.supportImg}
+            style={{
+              width: "200px",
+              height: "200px",
+            }}
+          />
+          <p>
+            We have sent a message with verification code to your email address
+          </p>
+        </div>
+        <div className={styles.formContainer}>
+          <h2>Verify your account</h2>
+          <p>
+            Enter the code that we sent to <span>{router.query.email}</span>
+          </p>
+          <input
+            type="text"
+            value={token}
+            placeholder="Verification code"
+            onChange={(e) => setToken(e.target.value)}
+          />
+          <button type="button" onClick={handleSubmit} disabled={loading}>
+            Verify
+          </button>
+          <div>
+            <p>
+              Didn't get a code ? <span>Resend token</span>
+            </p>
+          </div>
+          <div>
+            <p>
+              <Link href="/auth/login">
+                <a>Login</a>
+              </Link>{" "}
+              or{" "}
+              <Link href="/auth/signup">
+                <a>Signup</a>
+              </Link>
+            </p>
+          </div>
+        </div>
       </div>
     </Layout>
   );

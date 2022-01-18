@@ -7,7 +7,6 @@ import Axios from "./../../api/server";
 import { ToastContainer, toast } from "react-toastify";
 
 import Navbar from "./../../components/Navbar/Auth";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
