@@ -45,15 +45,9 @@ const Verify = () => {
       <div className={styles.verifyWrapper}>
         <div className={styles.support}>
           <BrandLogo fontSize="2rem" />
-          <Image
-            src={VerifyImg}
-            alt="Verify"
-            className={styles.supportImg}
-            style={{
-              width: "200px",
-              height: "200px",
-            }}
-          />
+          <div className={styles.supportImg}>
+            <Image src={VerifyImg} alt="Verify" />
+          </div>
           <p>
             We have sent a message with verification code to your email address
           </p>
@@ -72,13 +66,11 @@ const Verify = () => {
           <button type="button" onClick={handleSubmit} disabled={loading}>
             Verify
           </button>
-          <div>
+          <div className={styles.footer}>
             <p>
               Didn't get a code ? <span>Resend token</span>
             </p>
-          </div>
-          <div>
-            <p>
+            {/* <p className={styles.link}>
               <Link href="/auth/login">
                 <a>Login</a>
               </Link>{" "}
@@ -86,7 +78,7 @@ const Verify = () => {
               <Link href="/auth/signup">
                 <a>Signup</a>
               </Link>
-            </p>
+            </p> */}
           </div>
         </div>
       </div>

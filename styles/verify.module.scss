@@ -1,5 +1,9 @@
+@import "./colors.scss";
+
 .verifyWrapper {
-  width: 100%;
+  max-width: 1100px;
+  width: 95%;
+  margin: auto;
   min-height: 100vh;
   height: 100%;
   display: flex;
@@ -7,10 +11,88 @@
   align-items: center;
   background-color: #f5f5f5;
   .support {
+    flex: 0.4;
     background-color: #fff;
-    padding: 3rem 2rem;
-    .logo {
-      font-size: 5rem;
+    padding: 1.5rem 2rem 3rem 1.5rem;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25),
+      inset 4px 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 1;
+    @media (max-width: 900px) {
+      display: none;
+    }
+    .supportImg {
+      margin-top: 2rem;
+      & > div {
+        width: 100%;
+        height: 15rem;
+      }
+    }
+    p {
+      font-size: 1rem;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+  }
+  .formContainer {
+    padding: 1.5rem;
+    background-color: #fff;
+    flex: 0.6;
+    box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    // margin-left: -0rem;
+    z-index: -0.5;
+    @media (max-width: 900px) {
+      flex: 1;
+    }
+    h2 {
+      color: $primary;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+    p {
+      font-size: 0.95rem;
+    }
+    input {
+      display: block;
+      width: 100%;
+      font-size: 1rem;
+      padding: 0.8rem;
+      margin: 0.8rem 0 1rem 0;
+      outline: none;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      border-radius: 0.3rem;
+    }
+    button {
+      width: 100%;
+      margin-bottom: 0.8rem;
+      cursor: pointer;
+      background-color: $primary;
+      outline: none;
+      font-size: 1rem;
+      color: #fff;
+      border: none;
+      text-transform: uppercase;
+      padding: 0.9rem 0.8rem 0.8rem 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      border-radius: 0.3rem;
+    }
+    p {
+      font-weight: 500;
+      span {
+        cursor: pointer;
+        color: blue;
+      }
+    }
+    .footer {
+      text-align: center;
+      margin-top: 0.3rem;
+      // .link {
+      //   margin-top: 0.3rem;
+      //   a {
+      //     font-size: 0.9rem;
+      //     color: #11468f;
+      //   }
+      // }
     }
   }
 }
