@@ -44,7 +44,7 @@ const Verify = () => {
       <ToastContainer />
       <div className={styles.verifyWrapper}>
         <div className={styles.support}>
-          <BrandLogo />
+          <BrandLogo fontSize="2rem" />
           <Image
             src={VerifyImg}
             alt="Verify"

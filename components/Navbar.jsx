@@ -2,19 +2,13 @@ import Link from "next/link";
 import styles from "./../styles/navbar.module.scss";
 import { logout, checkJwtToken } from "./../helper/jwt";
 import { useRouter } from "next/router";
-
+import BrandLogo from "./../components/Utils/Brand/Logo";
 const Navbar = () => {
   const router = useRouter();
   return (
     <>
       <nav className={styles.navbar}>
-        <div className={styles.brand}>
-          <Link href="/">
-            <h3 className={styles.logo}>
-              AVA<span>SAR</span>
-            </h3>
-          </Link>
-        </div>
+        <BrandLogo />
         <div className={styles.links}>
           <div className={styles.link}>
             <Link href="/">
