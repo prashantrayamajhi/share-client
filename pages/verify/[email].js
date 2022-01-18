@@ -39,6 +39,21 @@ const Verify = () => {
       setLoading(false);
     }
   };
+
+  const resend = async () => {
+    try {
+      const res = await Axios.post("/auth/resend", {
+        email: router.query.email,
+      });
+      if (res.status === 200) {
+        toast.success("Resent verification token");
+      }
+    } catch (err) {
+      console.log(err);
+      setErr(err.response.data.err);
+      setErr(null);
+    }
+  };
   return (
     <Layout title={`Verify | ${router.query.email}`}>
       <ToastContainer />
@@ -68,17 +83,8 @@ const Verify = () => {
           </button>
           <div className={styles.footer}>
             <p>
-              Didn't get a code ? <span>Resend token</span>
+              Didn't get a code ? <span onClick={resend}>Resend token</span>
             </p>
-            {/* <p className={styles.link}>
-              <Link href="/auth/login">
-                <a>Login</a>
-              </Link>{" "}
-              or{" "}
-              <Link href="/auth/signup">
-                <a>Signup</a>
-              </Link>
-            </p> */}
           </div>
         </div>
       </div>

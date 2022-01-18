@@ -78,6 +78,7 @@
     }
     p {
       font-weight: 500;
+      user-select: none;
       span {
         cursor: pointer;
         color: blue;
@@ -86,13 +87,6 @@
     .footer {
       text-align: center;
       margin-top: 0.3rem;
-      // .link {
-      //   margin-top: 0.3rem;
-      //   a {
-      //     font-size: 0.9rem;
-      //     color: #11468f;
-      //   }
-      // }
     }
   }
 }
