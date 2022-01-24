@@ -1,20 +1,22 @@
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
 import { useEffect, useState } from "react";
-import { checkJwtToken } from "../helper/jwt";
-import { useRouter } from "next/router";
 import Axios from "./../api/server";
 import PostCard from "../components/PostCard";
 import styles from "./../styles/posts.module.scss";
 
 const Post = () => {
   const [posts, setPosts] = useState([]);
-  const router = useRouter();
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await Axios.get("/posts");
-      setPosts(res.data.data);
+      try {
+        const res = await Axios.get("/posts");
+
+        setPosts(res.data.data);
+      } catch (err) {
+        console.log(err);
+      }
     };
     fetchPosts();
   }, []);
