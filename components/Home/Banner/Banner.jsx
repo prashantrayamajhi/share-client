@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import styles from "./../../../styles/home.module.scss";
+import styles from "./../../../styles/home/banner.module.scss";
 
 const Banner = () => {
   return (
