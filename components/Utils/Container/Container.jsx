@@ -8,7 +8,7 @@ const Container = ({ title, children }) => {
 
   useEffect(() => {
     setTitleWidth(`${titleRef.current.offsetWidth}px`);
-  }, [titleRef.current]);
+  }, [titleRef]);
 
   return (
     <>

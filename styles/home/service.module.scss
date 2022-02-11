@@ -1,0 +1,59 @@
+@import "./../colors.scss";
+
+.serviceWrapper {
+  margin-top: 3rem;
+  display: flex;
+  gap: 3rem 2rem;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.card {
+  cursor: pointer;
+  text-align: center;
+  @media (max-width: 640px) {
+    display: block;
+    width: 100%;
+  }
+  p {
+    color: $primary;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 0.8rem;
+    @media (max-width: 900px) {
+      font-size: 1.1rem;
+    }
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+  .imgWrapper {
+    width: 16rem;
+    height: 15rem;
+    border: 3px solid $primary;
+    border-radius: 50%;
+    position: relative;
+    @media (max-width: 900px) {
+      width: 14rem;
+      height: 14rem;
+    }
+    @media (max-width: 768px) {
+      width: 12rem;
+      height: 12rem;
+    }
+    @media (max-width: 600px) {
+      width: 80%;
+      height: 17rem;
+      margin: auto;
+    }
+    img {
+      width: 80%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+    }
+  }
+}

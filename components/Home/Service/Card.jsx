@@ -1,9 +1,13 @@
+import styles from "./../../../styles/home/service.module.scss";
+
 const Card = ({ image, title }) => {
   return (
-    <>
-      <img src={image} alt={title} />
+    <div className={styles.card}>
+      <div className={styles.imgWrapper}>
+        <img src={image} alt={title} />
+      </div>
       <p>{title}</p>
-    </>
+    </div>
   );
 };
 

@@ -2,12 +2,6 @@ import Container from "./../../Utils/Container/Container";
 import Card from "./Card";
 import styles from "./../../../styles/home/service.module.scss";
 
-// images
-// import FundRaiser from "/images/fund-raiser.png";
-// import IdeaFeeds from "/images/idea-feeds.png";
-// import PitchInvestor from "/images/pitch-investor.png";
-// import StartupMarketplace from "/images/startup-marketplace.png";
-
 const Service = () => {
   const items = [
     {
