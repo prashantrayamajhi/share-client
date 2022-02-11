@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 
 // components
 import Banner from "./../components/Home/Banner/Banner";
+import Service from "./../components/Home/Service/Service";
 
 const Post = () => {
   return (
@@ -10,6 +11,7 @@ const Post = () => {
       <Layout title="Avasar">
         <Navbar />
         <Banner />
+        <Service />
       </Layout>
     </>
   );
