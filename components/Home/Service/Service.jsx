@@ -23,7 +23,7 @@ const Service = () => {
   ];
   return (
     <>
-      <Container title="Some excellent services for you">
+      <Container title="Our Services">
         <div className={styles.serviceWrapper}>
           {items.map((item) => {
             return (
