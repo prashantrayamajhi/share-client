@@ -17,7 +17,7 @@ const Service = () => {
       title: "Fund Raiser",
     },
     {
-      img: "startup-marketplace.png",
+      img: "/startup-marketplace.png",
       title: "Startup Marketplace",
     },
   ];
