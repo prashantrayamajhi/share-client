@@ -15,9 +15,10 @@
     display: flex;
     align-items: center;
     .link {
-      margin-left: 3rem;
+      margin-left: 2.5rem;
       display: flex;
       align-items: center;
+
       @media (max-width: 500px) {
         margin-left: 1rem;
       }
@@ -34,9 +35,19 @@
         user-select: none;
         text-decoration: none;
         cursor: pointer;
-        color: $primary;
-        font-weight: 600;
-        font-size: 0.95rem;
+        color: #000;
+        font-weight: 500;
+        font-size: 0.9rem;
+      }
+    }
+    .link.signup {
+      a {
+        background-color: $primary;
+        padding: 0.4rem 1rem;
+        border-radius: 0.2rem;
+        cursor: pointer;
+        color: #fff;
+        font-weight: 400;
       }
     }
   }

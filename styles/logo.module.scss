@@ -1,14 +1,10 @@
 @import "./colors.scss";
 
 .brand {
+  display: flex;
+  align-items: center;
   cursor: pointer;
-  .logo {
-    font-size: 1.6rem;
-    @media (max-width: 500px) {
-      font-size: 1.4rem;
-    }
-    span {
-      color: $primary;
-    }
+  img {
+    width: 70%;
   }
 }

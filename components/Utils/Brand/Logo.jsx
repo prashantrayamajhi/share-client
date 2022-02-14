@@ -1,19 +1,12 @@
 import Link from "next/link";
 import styles from "./../../../styles/logo.module.scss";
 
-const Logo = ({ fontSize }) => {
+const Logo = () => {
   return (
     <>
       <div className={styles.brand}>
         <Link href="/">
-          <h3
-            className={styles.logo}
-            style={{
-              fontSize: fontSize ? fontSize : "",
-            }}
-          >
-            AVA<span>SAR</span>
-          </h3>
+          <img src="/logo.png" alt="Avasar Logo" />
         </Link>
       </div>
     </>

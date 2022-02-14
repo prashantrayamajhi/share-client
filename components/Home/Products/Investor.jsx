@@ -27,7 +27,7 @@ const Idea = () => {
       id: 4,
       title: "Aayushma Shrestha",
       img: "/paral.png",
-      description: "Human rights activist and millionaire",
+      description: "Human rights activist",
     },
   ];
   return (
@@ -41,6 +41,7 @@ const Idea = () => {
               title={idea.title}
               description={idea.description}
               link="/"
+              btn="Contact Now"
             />
           ))}
         </Carousel>

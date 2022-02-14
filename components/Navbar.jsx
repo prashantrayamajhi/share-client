@@ -3,6 +3,8 @@ import styles from "./../styles/navbar.module.scss";
 import { logout, checkJwtToken } from "./../helper/jwt";
 import { useRouter } from "next/router";
 import BrandLogo from "./../components/Utils/Brand/Logo";
+import classNames from "classnames";
+
 const Navbar = () => {
   const router = useRouter();
   return (
@@ -13,6 +15,26 @@ const Navbar = () => {
           <div className={styles.link}>
             <Link href="/">
               <a>Home</a>
+            </Link>
+          </div>
+          <div className={styles.link}>
+            <Link href="/">
+              <a>About us</a>
+            </Link>
+          </div>
+          <div className={styles.link}>
+            <Link href="/">
+              <a>Services</a>
+            </Link>
+          </div>
+          <div className={styles.link}>
+            <Link href="/">
+              <a>Blogs</a>
+            </Link>
+          </div>
+          <div className={styles.link}>
+            <Link href="/">
+              <a>Contact us</a>
             </Link>
           </div>
           {checkJwtToken() ? (
@@ -35,9 +57,9 @@ const Navbar = () => {
               </div>
             </>
           ) : (
-            <div className={styles.link}>
+            <div className={classNames(styles.link, styles.signup)}>
               <Link href="/auth/login">
-                <a>Login</a>
+                <a>Sign up</a>
               </Link>
             </div>
           )}

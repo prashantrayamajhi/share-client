@@ -41,6 +41,7 @@ const Idea = () => {
               title={idea.title}
               description={idea.description}
               link="/"
+              btn="View Details"
             />
           ))}
         </Carousel>
