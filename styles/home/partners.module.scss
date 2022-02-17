@@ -1,0 +1,28 @@
+@import "./../colors.scss";
+
+.wrapper {
+  background-color: $primary;
+  text-align: center;
+  padding: 3rem 0 2rem;
+  h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 0.1px;
+  }
+  .carousel {
+    padding-bottom: 4rem;
+    max-width: 1300px;
+    width: 95%;
+    margin: 2rem auto 0;
+    .item {
+      width: 90%;
+      margin: auto;
+      img {
+        width: 100%;
+        height: 9rem;
+        object-fit: cover;
+      }
+    }
+  }
+}

@@ -6,6 +6,7 @@ import Banner from "./../components/Home/Banner/Banner";
 import Idea from "./../components/Home/Products/Idea";
 import Investor from "./../components/Home/Products/Investor";
 import Service from "./../components/Home/Service/Service";
+import Partners from "./../components/Home/Partners/Partners";
 
 const Post = () => {
   return (
@@ -16,6 +17,7 @@ const Post = () => {
         <Idea />
         <Investor />
         <Service />
+        <Partners />
       </Layout>
     </>
   );
