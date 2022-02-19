@@ -7,17 +7,19 @@ import Idea from "./../components/Home/Products/Idea";
 import Investor from "./../components/Home/Products/Investor";
 import Service from "./../components/Home/Service/Service";
 import Partners from "./../components/Home/Partners/Partners";
+import Contact from "./../components/Home/Contact/Contact";
 
 const Post = () => {
   return (
     <>
       <Layout title="Avasar">
-        <Navbar />
+        {/* <Navbar /> */}
         <Banner />
         <Idea />
         <Investor />
         <Service />
         <Partners />
+        <Contact />
       </Layout>
     </>
   );

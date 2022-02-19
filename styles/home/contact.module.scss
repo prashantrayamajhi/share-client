@@ -1,0 +1,61 @@
+@import "./../colors.scss";
+
+.contactWrapper {
+  display: flex;
+  .image {
+    width: 55%;
+    padding: 1rem;
+    text-align: center;
+    @media (max-width: 900px) {
+      width: 50%;
+      display: none;
+    }
+    img {
+      width: 80%;
+      @media (max-width: 900px) {
+        width: 100%;
+      }
+    }
+  }
+  .form {
+    width: 45%;
+    padding: 2rem 1rem;
+    @media (max-width: 900px) {
+      //   width: 50%;
+      width: 100%;
+      padding: 0 1rem;
+    }
+    input,
+    textarea {
+      display: block;
+      margin-bottom: 1.7rem;
+      width: 100%;
+      font-size: 1rem;
+      padding: 0.9rem 0.6rem;
+      outline: none;
+      border-radius: 0.3rem;
+      border: 1px solid rgba(0, 0, 0, 0.4);
+    }
+    textarea {
+      padding: 0.5rem 0.7rem;
+      color: #000;
+      font-family: "Roboto", sans-serif;
+      height: 10rem;
+    }
+
+    button {
+      display: block;
+      margin: auto;
+      font-size: 1.1rem;
+      background-color: $primary;
+      color: #fff;
+      cursor: pointer;
+      padding: 0.8rem 3rem;
+      outline: none;
+      border: none;
+      border-radius: 0.3rem;
+      letter-spacing: 1px;
+      max-width: 100%;
+    }
+  }
+}
