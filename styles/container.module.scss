@@ -14,8 +14,9 @@
       font-size: 2.8rem;
       font-weight: 400;
       border-bottom: 1px solid $primary;
-      padding-bottom: 0.5rem;
+      // padding-bottom: 0.5rem;
       position: relative;
+
       .right,
       .left {
         position: absolute;
@@ -23,13 +24,23 @@
         height: 0.5rem;
         background-color: $primary;
         border-radius: 50%;
-        top: 96%;
+        top: 95%;
+
+        @media (max-width: 900px) {
+          top: 93%;
+        }
+        @media (max-width: 768px) {
+          top: 92%;
+        }
+        @media (max-width: 400px) {
+          top: 90%;
+        }
       }
       .right {
-        right: -0.5rem;
+        right: -2%;
       }
       .left {
-        left: -0.5rem;
+        left: -2%;
       }
       @media (max-width: 900px) {
         font-size: 2.3rem;
