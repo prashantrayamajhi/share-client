@@ -13,7 +13,7 @@ const Post = () => {
   return (
     <>
       <Layout title="Avasar">
-        {/* <Navbar /> */}
+        <Navbar />
         <Banner />
         <Idea />
         <Investor />
