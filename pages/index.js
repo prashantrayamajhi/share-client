@@ -8,6 +8,7 @@ import Investor from "./../components/Home/Products/Investor";
 import Service from "./../components/Home/Service/Service";
 import Partners from "./../components/Home/Partners/Partners";
 import Contact from "./../components/Home/Contact/Contact";
+import Footer from "./../components/Home/Footer/Footer";
 
 const Post = () => {
   return (
@@ -20,6 +21,7 @@ const Post = () => {
         <Service />
         <Partners />
         <Contact />
+        {/* <Footer /> */}
       </Layout>
     </>
   );

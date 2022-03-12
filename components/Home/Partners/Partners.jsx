@@ -25,38 +25,6 @@ const Partners = () => {
     },
 
     {
-      id: 13,
-      img: "/paral.png",
-    },
-    {
-      id: 12,
-      img: "/paral.png",
-    },
-    {
-      id: 11,
-      img: "/paral.png",
-    },
-    {
-      id: 10,
-      img: "/paral.png",
-    },
-    {
-      id: 9,
-      img: "/paral.png",
-    },
-    {
-      id: 8,
-      img: "/paral.png",
-    },
-    {
-      id: 7,
-      img: "/paral.png",
-    },
-    {
-      id: 6,
-      img: "/paral.png",
-    },
-    {
       id: 5,
       img: "/paral.png",
     },

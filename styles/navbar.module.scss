@@ -7,13 +7,29 @@
   padding: 1rem 3rem;
   box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.3);
   background-color: #fff;
+  // position: relative;
   @media (max-width: 500px) {
+    padding: 1rem;
+  }
+
+  .mobileHeader {
+    display: none;
+  }
+  .mobileHeader.open {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 1rem;
   }
 
   .links {
     display: flex;
     align-items: center;
+    @media (max-width: 1000px) {
+      display: none;
+      width: 100%;
+    }
     .link {
       margin-left: 2.5rem;
       display: flex;
@@ -49,6 +65,54 @@
         color: #fff;
         font-weight: 400;
       }
+    }
+  }
+
+  .links.open {
+    @media (max-width: 1000px) {
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      z-index: 999999;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      .link {
+        margin-left: 0;
+        display: block;
+        width: 100%;
+
+        padding: 1rem;
+        a {
+          font-size: 1.1rem;
+        }
+      }
+      .link.signup {
+        display: block;
+        a {
+          background-color: $primary;
+          padding: 0.4rem 1rem;
+          border-radius: 0.2rem;
+          cursor: pointer;
+          color: #fff;
+          font-weight: 400;
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+
+  .icon {
+    width: 1.2rem;
+    cursor: pointer;
+    display: none;
+    @media (max-width: 1000px) {
+      display: block;
     }
   }
 }

@@ -1,0 +1,17 @@
+@import "./colors.scss";
+
+.footer {
+  background-color: $primary-dark;
+  color: #fff;
+  padding: 1rem;
+  .preFooter {
+    display: flex;
+    justify-content: space-between;
+    .main {
+      h1 {
+        font-size: 1.7rem;
+        font-weight: 600;
+      }
+    }
+  }
+}
