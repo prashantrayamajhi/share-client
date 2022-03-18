@@ -4,6 +4,16 @@ import Axios from "./../../api/server";
 import Layout from "../../components/Layout";
 import Navbar from "../../components/Navbar";
 import marked from "marked";
+import styles from "./../../styles/post.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faInstagram,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
+
+import Link from "next/link";
+import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 
 const Post = () => {
   const router = useRouter();
@@ -26,13 +36,83 @@ const Post = () => {
       <Navbar />
       {post && (
         <Layout title={post.title}>
-          <img style={{ width: "100%" }} src={post.img} alt={post.title} />
-          <h1>{post.title}</h1>
-          <article
-            dangerouslySetInnerHTML={{
-              __html: marked(post.content),
-            }}
-          ></article>
+          <div className={styles.container}>
+            <div className={styles.main}>
+              <div className={styles.imgWrapper}>
+                <img src={post.images[0]} alt={post.title} />
+              </div>
+
+              <div className={styles.titleWrapper}>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14131.492491357936!2d85.22048414999999!3d27.690316049999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb237653cadf1f%3A0x50d507a41c273246!2sHotel%20Chandragiri%20Hills%20Pvt.ltd!5e0!3m2!1sen!2snp!4v1647610083534!5m2!1sen!2snp"
+                  allowFullScreen={true}
+                  loading="lazy"
+                />
+
+                <div className={styles.info}>
+                  <div className={styles.categories}>
+                    <Link href="#">
+                      <a>E-commerce</a>
+                    </Link>
+                    <Link href="#">
+                      <a>Technology</a>
+                    </Link>
+                  </div>
+                  <h1>{post.title}</h1>
+
+                  <div className={styles.subInfo}>
+                    <div className={styles.address}>
+                      <p>414 E. 8th Street Traverse City, MI 49684</p>
+                    </div>
+
+                    <div className={styles.linksWrapper}>
+                      <p>Connect with us</p>
+                      <div className={styles.links}>
+                        <Link href="">
+                          <FontAwesomeIcon
+                            icon={faFacebook}
+                            className={styles.icon}
+                          />
+                        </Link>
+                        <Link href="">
+                          <FontAwesomeIcon
+                            icon={faInstagram}
+                            className={styles.icon}
+                          />
+                        </Link>
+                        <Link href="">
+                          <FontAwesomeIcon
+                            icon={faLinkedin}
+                            className={styles.icon}
+                          />
+                        </Link>
+                        <Link href="">
+                          <FontAwesomeIcon
+                            icon={faGlobe}
+                            className={styles.icon}
+                          />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.content}>
+                <h2>Our Story</h2>
+                <article
+                  dangerouslySetInnerHTML={{
+                    __html: marked(post.content),
+                  }}
+                ></article>
+              </div>
+            </div>
+
+            <div className={styles.side}>
+              <h3>Market Place</h3>
+              <p>Coming Soon...</p>
+            </div>
+          </div>
         </Layout>
       )}
     </>

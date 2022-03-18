@@ -23,6 +23,7 @@ const Post = () => {
   const [isPrivate, setIsPrivate] = useState(false);
   const [config, setConfig] = useState(null);
   const [error, setError] = useState(null);
+  const [postType, setPostType] = useState("startup");
 
   if (error) {
     toast.error(error, {
@@ -86,6 +87,7 @@ const Post = () => {
       formData.append("title", title);
       formData.append("content", content);
       formData.append("description", description);
+      formData.append("postType", postType);
       if (img) {
         for (let i = 0; i < img.length; i++) {
           formData.append("images", img[i]);
@@ -175,6 +177,28 @@ const Post = () => {
                 value={isPrivate}
                 checked={isPrivate}
                 onChange={() => setIsPrivate(!isPrivate)}
+              />
+            </div>
+            <div className={classnames(styles.input, styles.private)}>
+              {/* create a radio button group with startup and expansions options */}
+              <label htmlFor="startup">Startup</label>
+              <input
+                type="radio"
+                id="startup"
+                name="postType"
+                value="startup"
+                checked={postType === "startup"}
+                onChange={() => setIsPrivate("startup")}
+              />
+
+              <label htmlFor="expansion">Expansion</label>
+              <input
+                type="radio"
+                id="expansion"
+                name="postType"
+                value="expansion"
+                checked={postType === "expansion"}
+                onChange={() => setPostType("expansion")}
               />
             </div>
             <div className={styles.btn}>
