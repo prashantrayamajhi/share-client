@@ -18,7 +18,7 @@ const PostCard = ({ post, isAuth = false }) => {
 
   const deletePost = async (id) => {
     try {
-      await Axios.delete(`/user/posts/${id}`, config);
+      await Axios.delete(`/posts/${id}`, config);
       window.location.reload();
     } catch (error) {
       console.log(error);
