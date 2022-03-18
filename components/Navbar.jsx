@@ -75,7 +75,7 @@ const Navbar = () => {
             </>
           ) : (
             <div className={classNames(styles.link, styles.signup)}>
-              <Link href="/auth/login">
+              <Link href="/auth/signup">
                 <a>Sign up</a>
               </Link>
             </div>

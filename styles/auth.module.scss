@@ -66,6 +66,17 @@
       @media (max-width: 600px) {
         width: 90%;
       }
+      .inputCheckbox {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.2rem;
+        input {
+          margin-left: 1rem;
+        }
+        label {
+          user-select: none;
+        }
+      }
       .input {
         margin-bottom: 1.35rem;
         input {

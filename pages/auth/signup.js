@@ -17,12 +17,6 @@ import First from "../../components/Signup/First";
 import Second from "../../components/Signup/Second";
 
 const Signup = () => {
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [address, setAddress] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [confirmPassword, setConfirmPassword] = useState("");
-
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -34,6 +28,7 @@ const Signup = () => {
       website: "",
       companySector: "",
       panNumber: "",
+      userType: false,
     },
   });
 
@@ -67,6 +62,7 @@ const Signup = () => {
       website: formik.values.website,
       companySector: formik.values.companySector,
       panNumber: formik.values.panNumber,
+      userType: formik.values.userType,
     };
 
     try {

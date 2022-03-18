@@ -49,6 +49,16 @@ const First = ({ formik, setStep }) => {
             onChange={formik.handleChange}
           />
         </div>
+        <div className={styles.inputCheckbox}>
+          <label htmlFor="userType">Investor</label>
+          <input
+            type="checkbox"
+            name="userType"
+            id="userType"
+            value={formik.values.userType}
+            onChange={formik.handleChange}
+          />
+        </div>
         <div className={styles.btn}>
           <button
             onClick={() => {
