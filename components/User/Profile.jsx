@@ -36,8 +36,8 @@ const Profile = () => {
         <>
           <Banner user={user} isOwnProfile={isOwnProfile} />
           <div className={styles.profileContainer}>
-            <Posts user={user} id={id} />
-            <About id={id} />
+            {/* <Posts user={user} id={id} /> */}
+            {/* <About id={id} /> */}
           </div>
         </>
       )}

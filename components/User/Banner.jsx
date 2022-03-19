@@ -43,11 +43,11 @@ const Banner = ({ user, isOwnProfile }) => {
               </Link>
             </div>
             <div className={styles.actions}>
-              <Link href="/settings">
-                <a className={styles.icon}>
+              <Link href="/profile/settings">
+                <div className={styles.icon}>
                   <span>Edit Profile</span>
-                  <FontAwesomeIcon icon={faCog} />
-                </a>
+                  {/* <FontAwesomeIcon icon={faCog} /> */}
+                </div>
               </Link>
               {/* {isOwnProfile ? (
                 <Link href="/settings" className={styles.icon}>
