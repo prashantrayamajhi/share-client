@@ -8,19 +8,28 @@ const Profile = ({ user, config }) => {
   const [instagram, setInstagram] = useState(user.instagram);
   const [linkedin, setLinkedin] = useState(user.linkedin);
   const [website, setWebsite] = useState(user.website);
+  const [err, setErr] = useState(null);
+
+  if (err) {
+    toast.error(err, {
+      theme: "colored",
+    });
+  }
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const data = { facebook, instagram, linkedin, website };
     try {
-      const res = await Axios.patch("/user/profile", config, data);
+      const res = await Axios.patch("/user/profile", data, config);
       if (res.status === 200) {
-        toast.success("Profile Updated Successfullt", {
+        toast.success("Profile Updated Successfully", {
           theme: "colored",
         });
       }
     } catch (err) {
       console.log(err);
+      setErr(err.response.data.err);
+      setErr(null);
     }
   };
 
