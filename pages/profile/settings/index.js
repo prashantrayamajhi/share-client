@@ -55,7 +55,7 @@ const Settings = () => {
             <div className={styles.settings}>
               <SettingsNav user={profile} />
               <div className={styles.body}>
-                <General user={profile} />
+                <General user={profile} config={config} />
               </div>
             </div>
           </>

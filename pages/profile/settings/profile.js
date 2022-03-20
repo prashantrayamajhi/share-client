@@ -50,12 +50,12 @@ const ProfileSettings = () => {
     <>
       <Layout>
         <Navbar />
-        {profile && (
+        {profile && config && (
           <>
             <div className={styles.settings}>
               <SettingsNav user={profile} />
               <div className={styles.body}>
-                <Profile user={profile} />
+                <Profile user={profile} config={config} />
               </div>
             </div>
           </>

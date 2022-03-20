@@ -1,18 +1,40 @@
 import { useState } from "react";
 import styles from "./../../../styles/profile/navbar.module.scss";
+import Axios from "./../../../api/server";
+import { toast, ToastContainer } from "react-toastify";
 
-const General = ({ user }) => {
+const General = ({ user, config }) => {
   const [name, setName] = useState(user.name);
   const [address, setAddress] = useState(user.address);
+  const [err, setErr] = useState(null);
+
+  if (err) {
+    toast.error(err, {
+      theme: "colored",
+    });
+  }
 
   const handleFormSubmit = async (e) => {
     // profile/general/:id
     e.preventDefault();
-    const data = { name, address, gender };
+    const data = { name, address };
+    try {
+      const res = await Axios.patch("/user/profile/general", data, config);
+      if (res.status === 200) {
+        toast.success("Profile Updated Successfullt", {
+          theme: "colored",
+        });
+      }
+    } catch (err) {
+      console.log(err);
+      setErr(err.response.data.err);
+      setErr(null);
+    }
   };
 
   return (
     <>
+      <ToastContainer />
       <form onSubmit={handleFormSubmit}>
         <div className={styles.inputWrapper}>
           <label htmlFor="name">Full Name</label>
