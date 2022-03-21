@@ -51,12 +51,7 @@ const Post = () => {
 
                 <div className={styles.info}>
                   <div className={styles.categories}>
-                    <Link href="#">
-                      <a>E-commerce</a>
-                    </Link>
-                    <Link href="#">
-                      <a>Technology</a>
-                    </Link>
+                    <p>{post.postType}</p>
                   </div>
                   <h1>{post.title}</h1>
 
