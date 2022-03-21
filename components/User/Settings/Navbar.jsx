@@ -27,6 +27,9 @@ const Navbar = ({ user }) => {
         <Link href="/profile/settings/image">
           <a className={styles.item}>Image</a>
         </Link>
+        <Link href="/profile/settings/verification">
+          <a className={styles.item}>Verification</a>
+        </Link>
         <Link href="/profile/settings/account">
           <a className={styles.item}>Account</a>
         </Link>
