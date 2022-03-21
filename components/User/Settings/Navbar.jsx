@@ -8,7 +8,9 @@ const Navbar = ({ user }) => {
       <div className={styles.header}>
         <img
           src={
-            "https://res.cloudinary.com/prashantrayamajhi/image/upload/v1631416201/pzhnincxyctp8ms6beao.jpg"
+            user.image
+              ? user.image
+              : "https://res.cloudinary.com/prashantrayamajhi/image/upload/v1631416201/pzhnincxyctp8ms6beao.jpg"
           }
           alt={user.name}
         />

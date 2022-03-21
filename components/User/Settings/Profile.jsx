@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
 import styles from "./../../../styles/profile/navbar.module.scss";
 import Axios from "./../../../api/server";
+import { toast, ToastContainer } from "react-toastify";
 
 const Profile = ({ user, config }) => {
   const [facebook, setFacebook] = useState(user.facebook);

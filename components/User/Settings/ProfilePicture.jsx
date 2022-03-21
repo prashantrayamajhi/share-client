@@ -1,20 +1,47 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./../../../styles/profile/navbar.module.scss";
+import Axios from "./../../../api/server";
+import { toast, ToastContainer } from "react-toastify";
 
-const Image = ({ user }) => {
+const Image = ({ user, config }) => {
   const [image, setImage] = useState(null);
   const [displayImage, setDisplayImage] = useState(null);
+  const [err, setErr] = useState(null);
 
-  const handleProfilePicture = (e) => {
+  if (err) {
+    toast.error(err, {
+      theme: "colored",
+    });
+  }
+
+  useEffect(() => {
+    if (user && user.image) {
+      setDisplayImage(user.image);
+    }
+  }, [user]);
+
+  const handleProfilePicture = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("image", image);
-    setDisplayImage(null);
-    setImage(null);
+    try {
+      const res = await Axios.patch("/user/profile/image", formData, config);
+      if (res.status === 200 && window) {
+        window.alert("Profile Picture Updated Successfully");
+        window.location.reload();
+      }
+    } catch (err) {
+      console.log(err);
+      setErr(err.response.data.err);
+      setErr(null);
+    }
+    // setDisplayImage(null);
+    // setImage(null);
   };
 
   return (
     <>
+      <ToastContainer />
       <form onSubmit={handleProfilePicture}>
         <input
           type="file"

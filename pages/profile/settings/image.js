@@ -35,6 +35,7 @@ const ProfileSettings = () => {
         console.log(err);
         if (
           err &&
+          err.response &&
           (err.response.status === 401 || err.response.status === 404)
         ) {
           router.push("/auth/login");
@@ -50,12 +51,12 @@ const ProfileSettings = () => {
     <>
       <Layout>
         <Navbar />
-        {profile && (
+        {profile && config && (
           <>
             <div className={styles.settings}>
               <SettingsNav user={profile} />
               <div className={styles.body}>
-                <ProfilePicture user={profile} />
+                <ProfilePicture user={profile} config={config} />
               </div>
             </div>
           </>
