@@ -57,36 +57,46 @@ const Post = () => {
 
                   <div className={styles.subInfo}>
                     <div className={styles.address}>
-                      <p>414 E. 8th Street Traverse City, MI 49684</p>
+                      <p>{post.user.address}</p>
                     </div>
 
                     <div className={styles.linksWrapper}>
                       <p>Connect with us</p>
                       <div className={styles.links}>
-                        <Link href="">
-                          <FontAwesomeIcon
-                            icon={faFacebook}
-                            className={styles.icon}
-                          />
-                        </Link>
-                        <Link href="">
-                          <FontAwesomeIcon
-                            icon={faInstagram}
-                            className={styles.icon}
-                          />
-                        </Link>
-                        <Link href="">
-                          <FontAwesomeIcon
-                            icon={faLinkedin}
-                            className={styles.icon}
-                          />
-                        </Link>
-                        <Link href="">
-                          <FontAwesomeIcon
-                            icon={faGlobe}
-                            className={styles.icon}
-                          />
-                        </Link>
+                        {post.user.facebook && (
+                          <a href={post.user.facebook} target="_blank">
+                            <FontAwesomeIcon
+                              icon={faFacebook}
+                              className={styles.icon}
+                            />
+                          </a>
+                        )}
+
+                        {post.user.instagram && (
+                          <a href={post.user.instagram} target="_blank">
+                            <FontAwesomeIcon
+                              icon={faInstagram}
+                              className={styles.icon}
+                            />
+                          </a>
+                        )}
+
+                        {post.user.linkedin && (
+                          <a href={post.user.linkedin} target="_blank">
+                            <FontAwesomeIcon
+                              icon={faLinkedin}
+                              className={styles.icon}
+                            />
+                          </a>
+                        )}
+                        {post.user.website && (
+                          <a href={post.user.website} target="_blank">
+                            <FontAwesomeIcon
+                              icon={faGlobe}
+                              className={styles.icon}
+                            />
+                          </a>
+                        )}
                       </div>
                     </div>
                   </div>
