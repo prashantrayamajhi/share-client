@@ -6,6 +6,7 @@ import { toast, ToastContainer } from "react-toastify";
 const General = ({ user, config }) => {
   const [name, setName] = useState(user.name);
   const [address, setAddress] = useState(user.address);
+  const [map, setMap] = useState(user.map);
   const [err, setErr] = useState(null);
 
   if (err) {
@@ -17,7 +18,7 @@ const General = ({ user, config }) => {
   const handleFormSubmit = async (e) => {
     // profile/general/:id
     e.preventDefault();
-    const data = { name, address };
+    const data = { name, address, map };
     try {
       const res = await Axios.patch("/user/profile/general", data, config);
       if (res.status === 200) {
@@ -54,6 +55,16 @@ const General = ({ user, config }) => {
             placeholder="Enter your address"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
+          />
+        </div>
+        <div className={styles.inputWrapper}>
+          <label htmlFor="address">Map</label>
+          <input
+            type="text"
+            id="address"
+            placeholder="Embed google maps location"
+            value={map}
+            onChange={(e) => setMap(e.target.value)}
           />
         </div>
         <button type="submit">Update</button>

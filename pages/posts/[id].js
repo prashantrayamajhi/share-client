@@ -43,11 +43,13 @@ const Post = () => {
               </div>
 
               <div className={styles.titleWrapper}>
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14131.492491357936!2d85.22048414999999!3d27.690316049999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb237653cadf1f%3A0x50d507a41c273246!2sHotel%20Chandragiri%20Hills%20Pvt.ltd!5e0!3m2!1sen!2snp!4v1647610083534!5m2!1sen!2snp"
-                  allowFullScreen={true}
-                  loading="lazy"
-                />
+                {post.location && (
+                  <iframe
+                    src={post.location}
+                    allowFullScreen={true}
+                    loading="lazy"
+                  />
+                )}
 
                 <div className={styles.info}>
                   <div className={styles.categories}>
