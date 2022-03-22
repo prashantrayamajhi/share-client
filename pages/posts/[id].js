@@ -43,9 +43,9 @@ const Post = () => {
               </div>
 
               <div className={styles.titleWrapper}>
-                {post.location && (
+                {post.user.map && (
                   <iframe
-                    src={post.location}
+                    src={post.user.map}
                     allowFullScreen={true}
                     loading="lazy"
                   />

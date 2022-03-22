@@ -20,9 +20,9 @@
     .titleWrapper {
       margin-top: 1.5rem;
       display: flex;
-      margin-right: 1.5rem;
       iframe {
         border: none;
+        margin-right: 1.5rem;
         width: 45%;
         @media (max-width: 768px) {
           display: none;
