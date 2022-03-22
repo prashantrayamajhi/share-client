@@ -1,45 +1,34 @@
-// import {useState, useEffect} from 'react'
+import { useState, useEffect } from "react";
 import Container from "./../../Utils/Container/Container";
 import Card from "../Cards/Card";
 import Carousel from "./../../Utils/Carousel/HomeCarousel";
-const Idea = () => {
-  // const [] = useState([])
-  const ideas = [
-    {
-      id: 1,
-      title: "Sudeep Puri",
-      img: "/paral.png",
-      description: "CEO of Nepal and India",
-    },
-    {
-      id: 2,
-      title: "Anshu Kumari Magar",
-      img: "/paral.png",
-      description: "Funding manager of Nepal",
-    },
-    {
-      id: 3,
-      title: "Shahil Karki",
-      img: "/paral.png",
-      description: "Defense minister of Nepal",
-    },
-    {
-      id: 4,
-      title: "Aayushma Shrestha",
-      img: "/paral.png",
-      description: "Human rights activist",
-    },
-  ];
+import Axios from "./../../../api/server";
+
+const Invesotor = () => {
+  const [investors, setInvestors] = useState([]);
+
+  useEffect(() => {
+    const fetchInvestors = async () => {
+      const res = await Axios.get("/users/investors");
+      setInvestors(res.data.data);
+    };
+    fetchInvestors();
+  }, []);
+
   return (
     <>
       <Container title="Popular Investors">
         <Carousel>
-          {ideas.map((idea) => (
+          {investors.map((user) => (
             <Card
-              key={idea.id}
-              img={idea.img}
-              title={idea.title}
-              description={idea.description}
+              key={user._id}
+              img={
+                user.image
+                  ? user.image
+                  : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
+              }
+              title={user.name}
+              description={"Alibaba ko mailo chora"}
               link="/"
               btn="Contact Now"
             />
@@ -50,4 +39,4 @@ const Idea = () => {
   );
 };
 
-export default Idea;
+export default Invesotor;
