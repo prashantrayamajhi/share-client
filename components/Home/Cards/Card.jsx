@@ -7,9 +7,9 @@ const Card = ({ img, title, description, btn, link }) => {
       <Link href={link}>
         <div className={styles.card}>
           <img src={img} alt={title} />
-          <div className={styles.content}> 
+          <div className={styles.content}>
             <h3>{title}</h3>
-            <p>{description}</p>
+            <p>{description.slice(0, 50)}...</p>
             {btn && <button>{btn}</button>}
           </div>
         </div>

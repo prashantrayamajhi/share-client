@@ -1,46 +1,31 @@
-// import {useState, useEffect} from 'react'
+import { useState, useEffect } from "react";
 import Container from "./../../Utils/Container/Container";
 import Card from "../Cards/Card";
 import Carousel from "./../../Utils/Carousel/HomeCarousel";
+import Axios from "./../../../api/server";
+
 const Idea = () => {
-  // const [] = useState([])
-  const ideas = [
-    {
-      id: 1,
-      title: "Paral",
-      img: "/paral.png",
-      description: "Paral is an eco friendly business in Nepal.",
-    },
-    {
-      id: 2,
-      title: "Paral",
-      img: "/paral.png",
-      description: "Paral is an eco friendly business in Nepal.",
-    },
-    {
-      id: 3,
-      title: "Paral",
-      img: "/paral.png",
-      description: "Paral is an eco friendly business in Nepal.",
-    },
-    {
-      id: 4,
-      title: "Paral",
-      img: "/paral.png",
-      description: "Paral is an eco friendly business in Nepal.",
-    },
-  ];
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const res = await Axios.get("/posts?limit=4");
+      setPosts(res.data.data);
+    };
+    fetchPosts();
+  }, []);
+
   return (
     <>
       <Container title="Idea of the day">
         <Carousel>
-          {ideas.map((idea) => (
+          {posts.map((post) => (
             <Card
-              key={idea.id}
-              img={idea.img}
-              title={idea.title}
-              description={idea.description}
-              link="/"
+              key={post.id}
+              img={post.images[0]}
+              title={post.title}
+              description={post.description}
+              link={`/posts/${post._id}`}
               btn="View Details"
             />
           ))}
