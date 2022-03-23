@@ -42,6 +42,7 @@ const Login = () => {
     try {
       const res = await Axios.post("/auth/login", data);
       localStorage.setItem("token", res.data.data.token);
+      localStorage.setItem("id", res.data.data.id);
       window.location.href = "/";
       setLoading(false);
     } catch (err) {

@@ -29,7 +29,7 @@ const Invesotor = () => {
               }
               title={user.name}
               description={"Alibaba ko mailo chora"}
-              link="/"
+              link={`/user/${user._id}`}
               btn="Contact Now"
             />
           ))}
