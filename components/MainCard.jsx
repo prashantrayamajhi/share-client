@@ -1,6 +1,8 @@
 import Link from "next/link";
 import styles from "./../styles/feeds.module.scss";
 import moment from "moment";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const MainCard = ({ post }) => {
   return (
@@ -35,6 +37,13 @@ const MainCard = ({ post }) => {
             <img src={post.images[0]} alt={post.title} />
           </Link>
           <p>{post.description}</p>
+
+          <Link href={"/posts/" + post._id}>
+            <p className={styles.link}>
+              View Details
+              <FontAwesomeIcon icon={faArrowRight} className={styles.icon} />
+            </p>
+          </Link>
         </div>
       </div>
     </>

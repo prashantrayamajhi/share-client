@@ -80,6 +80,31 @@
             margin-top: 0.6rem;
             line-height: 1.5;
           }
+
+          .link {
+            margin-top: 1rem;
+            color: $primary;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            padding: 0.3rem 0.5rem;
+            letter-spacing: 1px;
+            border-radius: 0.3rem;
+            transition: all 0.2s ease-in-out;
+            padding-left: 0;
+            &:hover {
+              background-color: $primary;
+              color: #fff;
+              font-weight: 500;
+              padding-left: 0.5rem;
+            }
+            .icon {
+              width: 1rem;
+              margin-left: 0.8rem;
+            }
+          }
         }
       }
     }
