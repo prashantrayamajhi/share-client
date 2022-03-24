@@ -1,0 +1,125 @@
+@import "./colors.scss";
+
+.container {
+  max-width: 1230px;
+  width: 90%;
+  margin: 1rem auto;
+  position: relative;
+  h1 {
+    color: $primary;
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+  .wrapper {
+    display: flex;
+    margin-top: 1rem;
+    position: relative;
+    @media (max-width: 900px) {
+      flex-direction: column;
+    }
+    .posts {
+      width: 70%;
+      @media (max-width: 900px) {
+        width: 100%;
+      }
+      .card {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 0.2rem;
+        box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.15);
+        margin-bottom: 2.5rem;
+        @media (max-width: 900px) {
+          margin-bottom: 1.8rem;
+        }
+        .profileTitle {
+          padding: 1rem 1.5rem;
+          margin-bottom: 1rem;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          .name {
+            display: flex;
+            .meta {
+              margin-left: 0.6rem;
+              p {
+                font-weight: 600;
+              }
+
+              .date {
+                font-weight: 500;
+                color: $support;
+                font-size: 0.8rem;
+              }
+            }
+          }
+          .profileImg {
+            width: 3rem;
+            height: 3rem;
+            object-fit: cover;
+            clip-path: circle();
+          }
+        }
+
+        .details {
+          padding: 0 1.5rem 1.5rem;
+          @media (max-width: 900px) {
+            padding: 0 1rem 1rem 1rem;
+          }
+          h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            cursor: pointer;
+            @media (max-width: 768px) {
+              font-size: 1.1rem;
+            }
+          }
+          img {
+            cursor: pointer;
+            margin-top: 0.6rem;
+            width: 100%;
+            border-radius: 0.3rem;
+          }
+          p {
+            margin-top: 0.6rem;
+            line-height: 1.5;
+          }
+        }
+      }
+    }
+    .investors {
+      margin-left: 1.5rem;
+      @media (max-width: 900px) {
+        margin-left: 0;
+      }
+      h3 {
+        font-weight: 500;
+        @media (max-width: 900px) {
+          font-size: 1.4rem;
+        }
+      }
+      .investorsList {
+        margin-top: 1rem;
+        .investor {
+          display: flex;
+          margin-bottom: 1rem;
+          cursor: pointer;
+          img {
+            width: 3.8rem;
+            height: 3rem;
+            border-radius: 0.3rem;
+            object-fit: cover;
+            @media (max-width: 900px) {
+              width: 5rem;
+              height: 5rem;
+            }
+          }
+          p {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-left: 0.8rem;
+            @media (max-width: 900px) {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

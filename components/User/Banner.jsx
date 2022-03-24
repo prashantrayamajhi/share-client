@@ -22,7 +22,7 @@ const Banner = ({ user }) => {
               src={
                 user.image
                   ? user.image
-                  : "https://res.cloudinary.com/prashantrayamajhi/image/upload/v1631416201/pzhnincxyctp8ms6beao.jpg"
+                  : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
               }
               alt={user.name}
             />
