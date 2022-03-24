@@ -34,7 +34,7 @@ const Navbar = () => {
               <a>Home</a>
             </Link>
           </div>
-          <div className={styles.link}>
+          {/* <div className={styles.link}>
             <Link href="/">
               <a>About us</a>
             </Link>
@@ -53,7 +53,14 @@ const Navbar = () => {
             <Link href="/">
               <a>Contact us</a>
             </Link>
+          </div> */}
+
+          <div className={styles.link}>
+            <Link href="/feeds">
+              <a>Feeds</a>
+            </Link>
           </div>
+
           {checkJwtToken() ? (
             <>
               <div className={styles.link}>
