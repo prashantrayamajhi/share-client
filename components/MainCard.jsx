@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "./../styles/feeds.module.scss";
+import styles from "./../styles/mainCard.module.scss";
 import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
@@ -10,7 +10,7 @@ const MainCard = ({ post }) => {
       <div className={styles.card}>
         <div className={styles.profileTitle}>
           <div className={styles.name}>
-            <Link href={`/ user/${post.user._id}`}>
+            <Link href={`/user/${post.user._id}`}>
               <img
                 className={styles.profileImg}
                 src={
@@ -22,7 +22,9 @@ const MainCard = ({ post }) => {
               />
             </Link>
             <div className={styles.meta}>
-              <p>{post.user.name}</p>
+              <Link href={`/user/${post.user._id}`}>
+                <p>{post.user.name}</p>
+              </Link>
               <p className={styles.date}>{moment(post.createdAt).fromNow()}</p>
             </div>
           </div>
@@ -37,7 +39,6 @@ const MainCard = ({ post }) => {
             <img src={post.images[0]} alt={post.title} />
           </Link>
           <p>{post.description}</p>
-
           <Link href={"/posts/" + post._id}>
             <p className={styles.link}>
               View Details
