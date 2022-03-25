@@ -24,13 +24,8 @@ const About = ({ user }) => {
             </p>
           </div>
           <div className={classNames(styles.info, styles.social)}>
-            <a href={user.linkedin} target="_blank" rel="noreferrer">
-              <p>PNG</p>
-              <img src="/facebook.png" alt="linkedin" className={styles.icon} />
-            </a>
             {user.linkedin && (
               <a href={user.linkedin} target="_blank" rel="noreferrer">
-                <p>PNG</p>
                 <img
                   src="/linkedin.png"
                   alt="linkedin"
@@ -38,11 +33,7 @@ const About = ({ user }) => {
                 />
               </a>
             )}
-            {user.website && (
-              <a href={user.website} target="_blank" rel="noreferrer">
-                <img src={Link} alt="" className={styles.icon} />
-              </a>
-            )}
+
             {user.instagram && (
               <a href={user.instagram} target="_blank" rel="noreferrer">
                 <img src="/instagram.png" alt="" className={styles.icon} />
@@ -53,9 +44,9 @@ const About = ({ user }) => {
                 <img src="/facebook.png" alt="" className={styles.icon} />
               </a>
             )}
-            {user.youtube && (
-              <a href={user.youtube} target="_blank" rel="noreferrer">
-                <img src={Youtube} alt="" className={styles.icon} />
+            {user.website && (
+              <a href={user.website} target="_blank" rel="noreferrer">
+                <img src="/link.png" alt="" className={styles.icon} />
               </a>
             )}
           </div>
