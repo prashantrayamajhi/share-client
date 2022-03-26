@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import Banner from "./../components/Home/Banner/Banner";
 import Idea from "./../components/Home/Products/Idea";
 import Investor from "./../components/Home/Products/Investor";
+import About from "./../components/Home/About/About";
 import Service from "./../components/Home/Service/Service";
 import Partners from "./../components/Home/Partners/Partners";
 import Contact from "./../components/Home/Contact/Contact";
@@ -18,6 +19,7 @@ const Post = () => {
         <Banner />
         <Idea />
         <Investor />
+        <About />
         <Service />
         <Partners />
         <Contact />
