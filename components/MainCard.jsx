@@ -2,7 +2,12 @@ import Link from "next/link";
 import styles from "./../styles/mainCard.module.scss";
 import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowRight,
+  faEdit,
+  faTrash,
+} from "@fortawesome/free-solid-svg-icons";
+import classNames from "classnames";
 
 const MainCard = ({ post }) => {
   return (
@@ -28,6 +33,23 @@ const MainCard = ({ post }) => {
               <p className={styles.date}>{moment(post.createdAt).fromNow()}</p>
             </div>
           </div>
+
+          {window.localStorage.getItem("id") === post.user._id && (
+            <div className={styles.actionsWrapper}>
+              <div className={styles.actions}>
+                <FontAwesomeIcon
+                  icon={faTrash}
+                  className={classNames(styles.icon, styles.delete)}
+                />
+              </div>
+              <div className={styles.actions}>
+                <FontAwesomeIcon
+                  icon={faEdit}
+                  className={classNames(styles.icon, styles.edit)}
+                />
+              </div>
+            </div>
+          )}
         </div>
 
         <div className={styles.details}>

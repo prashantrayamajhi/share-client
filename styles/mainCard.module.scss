@@ -9,6 +9,9 @@
     margin-bottom: 1.8rem;
   }
   .profileTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 1rem 1.5rem;
     margin-bottom: 1rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -25,6 +28,24 @@
           font-weight: 500;
           color: $support;
           font-size: 0.8rem;
+        }
+      }
+    }
+    .actionsWrapper {
+      display: flex;
+      align-items: center;
+      .actions {
+        .icon {
+          cursor: pointer;
+          width: 0.9rem;
+        }
+        .icon.delete {
+          color: red;
+        }
+        .icon.edit {
+          color: $primary-dark;
+          width: 1.2rem;
+          margin-left: 1rem;
         }
       }
     }
