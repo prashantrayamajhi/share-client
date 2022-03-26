@@ -55,6 +55,7 @@ const First = ({ formik, setStep }) => {
             type="checkbox"
             name="userType"
             id="userType"
+            checked={formik.values.userType === true ? true : false}
             value={formik.values.userType}
             onChange={formik.handleChange}
           />
