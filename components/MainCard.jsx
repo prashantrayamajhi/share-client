@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./../styles/mainCard.module.scss";
 import moment from "moment";
@@ -8,10 +9,21 @@ import {
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames";
+import Delete from "./Utils/Modal/Delete";
 
 const MainCard = ({ post }) => {
+  const [id, setId] = useState(null);
+  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+
   return (
     <>
+      {isDeleteOpen && id && (
+        <Delete
+          setIsDeleteOpen={setIsDeleteOpen}
+          title="Are you sure ?"
+          route={`/posts/${id}`}
+        />
+      )}
       <div className={styles.card}>
         <div className={styles.profileTitle}>
           <div className={styles.name}>
@@ -38,6 +50,10 @@ const MainCard = ({ post }) => {
             <div className={styles.actionsWrapper}>
               <div className={styles.actions}>
                 <FontAwesomeIcon
+                  onClick={() => {
+                    setId(post._id);
+                    setIsDeleteOpen(true);
+                  }}
                   icon={faTrash}
                   className={classNames(styles.icon, styles.delete)}
                 />
