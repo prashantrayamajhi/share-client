@@ -3,15 +3,49 @@
 .footer {
   background-color: $primary-dark;
   color: #fff;
-  padding: 1rem;
+  font-weight: 300;
   .preFooter {
+    padding: 4rem 2rem 2rem;
     display: flex;
     justify-content: space-between;
+    @media (max-width: 1100px) {
+      flex-direction: column;
+    }
     .main {
       h1 {
         font-size: 1.7rem;
         font-weight: 600;
       }
+      .social {
+        display: flex;
+        margin-top: 1rem;
+        .icon {
+          color: #fff;
+          width: 1.5rem;
+          margin-right: 1rem;
+          cursor: pointer;
+        }
+      }
     }
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      @media (max-width: 1100px) {
+        margin-top: 2rem;
+      }
+      p,
+      a {
+        margin-bottom: 0.9rem;
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+  }
+  .signature {
+    border-top: 1px solid #fff;
+    padding: 2rem 0.5rem 1.3rem;
+    text-align: center;
+    letter-spacing: 1px;
   }
 }

@@ -21,7 +21,7 @@ const Post = () => {
         <Service />
         <Partners />
         <Contact />
-        {/* <Footer /> */}
+        <Footer />
       </Layout>
     </>
   );

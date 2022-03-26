@@ -1,5 +1,11 @@
 import Link from "next/link";
 import styles from "./../../../styles/footer.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faInstagram,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
@@ -11,13 +17,13 @@ const Footer = () => {
             <p>A digital platform where ideas meet investors</p>
             <div className={styles.social}>
               <Link href="/">
-                <a>a</a>
+                <FontAwesomeIcon icon={faFacebook} className={styles.icon} />
               </Link>
               <Link href="/">
-                <a>b</a>
+                <FontAwesomeIcon icon={faTwitter} className={styles.icon} />
               </Link>
               <Link href="/">
-                <a>c</a>
+                <FontAwesomeIcon icon={faInstagram} className={styles.icon} />
               </Link>
             </div>
           </div>

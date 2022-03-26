@@ -1,14 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames";
-
-// images
-import Linkedin from "/images/linkedin.png";
-import Link from "/images/link.png";
-import Instagram from "/images/instagram.png";
-import Facebook from "/images/facebook.png";
-import Youtube from "/images/youtube.png";
-
 import styles from "./../../styles/profile/profile.module.scss";
 
 const About = ({ user }) => {
