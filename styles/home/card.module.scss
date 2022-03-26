@@ -22,6 +22,8 @@
       font-size: 1.15rem;
       font-weight: 500;
       color: $primary;
+      white-space: nowrap;
+      overflow: hidden;
     }
     p {
       font-size: 0.98rem;

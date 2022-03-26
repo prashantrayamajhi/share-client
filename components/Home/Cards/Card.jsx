@@ -9,7 +9,7 @@ const Card = ({ img, title, description, btn, link }) => {
           <img src={img} alt={title} />
           <div className={styles.content}>
             <h3>{title}</h3>
-            <p>{description.slice(0, 50)}...</p>
+            {description && <p>{description.slice(0, 50)}...</p>}
             {btn && <button>{btn}</button>}
           </div>
         </div>
