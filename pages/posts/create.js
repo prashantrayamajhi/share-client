@@ -188,10 +188,17 @@ const Post = () => {
                 name="postType"
                 value="startup"
                 checked={postType === "startup"}
-                onChange={() => setIsPrivate("startup")}
+                onChange={() => setPostType("startup")}
               />
 
-              <label htmlFor="expansion">Expansion</label>
+              <label
+                htmlFor="expansion"
+                style={{
+                  marginLeft: "1.5rem",
+                }}
+              >
+                Expansion
+              </label>
               <input
                 type="radio"
                 id="expansion"

@@ -44,6 +44,12 @@ const Navbar = () => {
           {checkJwtToken() ? (
             <>
               <div className={styles.link}>
+                <Link href="/posts/create">
+                  <a>Create</a>
+                </Link>
+              </div>
+
+              <div className={styles.link}>
                 <Link href="/profile">
                   <a>Profile</a>
                 </Link>
