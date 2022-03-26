@@ -1,3 +1,5 @@
+@import "./../colors.scss";
+
 .profileContainer {
   max-width: 1100px;
   width: 95%;
@@ -77,6 +79,22 @@
     @media (max-width: 800px) {
       width: 100%;
       margin: 11.5rem 0 0;
+    }
+
+    .pitch {
+      margin-top: 1.2rem;
+      button {
+        border: none;
+        outline: none;
+        width: 100%;
+        font-size: 1.1rem;
+        padding: 0.8rem;
+        background-color: $primary;
+        color: #fff;
+        letter-spacing: 1px;
+        border-radius: 0.2rem;
+        cursor: pointer;
+      }
     }
   }
 }

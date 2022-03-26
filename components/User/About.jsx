@@ -42,6 +42,17 @@ const About = ({ user }) => {
               </a>
             )}
           </div>
+          {user.userType === "investor" && (
+            <div className={styles.pitch}>
+              <button
+                onClick={() => {
+                  window.location.href = `mailto:${user.email}`;
+                }}
+              >
+                Pitch Investor
+              </button>
+            </div>
+          )}
         </div>
       </>
     )
