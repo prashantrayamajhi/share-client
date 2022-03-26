@@ -4,9 +4,12 @@ import { useRouter } from "next/router";
 import { checkJwtToken } from "../../helper/jwt";
 import Layout from "../../components/Layout";
 import Navbar from "../../components/Navbar";
-import Link from "next/link";
-import styles from "./../../styles/profile/settings.module.scss";
+
+import profileStyles from "./../../styles/profile/profile.module.scss";
+
 import Banner from "./../../components/User/Banner";
+import Posts from "./../../components/User/Posts";
+import About from "./../../components/User/About";
 
 const Profile = () => {
   const router = useRouter();
@@ -53,7 +56,10 @@ const Profile = () => {
         {profile && (
           <>
             <Banner user={profile} />
-            <div className={styles.container}></div>
+            <div className={profileStyles.profileContainer}>
+              <Posts user={profile} id={profile._id} />
+              <About user={profile} id={profile._id} />
+            </div>
           </>
         )}
       </Layout>

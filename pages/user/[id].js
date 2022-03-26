@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import Axios from "./../../api/server";
 import Layout from "../../components/Layout";
 import Navbar from "../../components/Navbar";
-import styles from "./../../styles/post.module.scss";
 
 import profileStyles from "./../../styles/profile/profile.module.scss";
 
