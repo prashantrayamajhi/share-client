@@ -25,6 +25,28 @@ const Post = () => {
   const [error, setError] = useState(null);
   const [postType, setPostType] = useState("startup");
 
+  useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        const res = await Axios.get(`/posts/${router.query.id}`);
+        setTitle(res.data.data.title);
+        setContent(res.data.data.content);
+        setDescription(res.data.data.description);
+        setDisplayImg(res.data.data.images);
+        setIsPrivate(res.data.data.isPrivate);
+        setPostType(res.data.data.postType);
+      } catch (err) {
+        console.log(err);
+        if (err && err.response && err.response.status == 404) {
+          router.push("/404");
+        }
+      }
+    };
+    if (router.query.id) {
+      fetchPost();
+    }
+  }, [router.query]);
+
   if (error) {
     toast.error(error, {
       theme: "colored",
@@ -94,22 +116,39 @@ const Post = () => {
         }
       }
       formData.append("isPrivate", isPrivate);
-      const res = await Axios.post("/posts", formData, config);
-      if (res.status === 201) {
-        toast.success("Idea posted successfully", {
-          theme: "colored",
-        });
-        setTitle("");
-        setContent("");
-        setDescription("");
-        setImg([]);
-        setDisplayImg([]);
-        setIsPrivate("");
+      if (router.query.id) {
+        if (!img) {
+          formData.append("image", displayImg);
+        }
+        const res = await Axios.patch(
+          `/posts/${router.query.id}`,
+          formData,
+          config
+        );
+        if (res.status === 200) {
+          toast.success("Post Updated successfully", {
+            theme: "colored",
+          });
+        }
+      } else {
+        const res = await Axios.post("/posts", formData, config);
+        if (res.status === 201) {
+          toast.success("Posted successfully", {
+            theme: "colored",
+          });
+          setTitle("");
+          setContent("");
+          setDescription("");
+          setImg([]);
+          setDisplayImg([]);
+          setIsPrivate("");
+        }
       }
+      window.scrollTo(0, 0);
     } catch (err) {
       console.log(err);
-      setError(err.response.data.err);
-      setError(null);
+      // setError(err.response.data.err);
+      // setError(null);
     }
   };
 
@@ -120,7 +159,7 @@ const Post = () => {
       <Layout title="Create Post">
         <div className={styles.wrapper}>
           <form className={styles.form} onSubmit={handleSubmit}>
-            <h3>Share an Idea</h3>
+            <h3>{router.query.id ? "Update" : "Share"} an Idea</h3>
             <div className={styles.input}>
               <label htmlFor="title">Title</label>
               <input
@@ -209,7 +248,9 @@ const Post = () => {
               />
             </div>
             <div className={styles.btn}>
-              <button type="submit">Create</button>
+              <button type="submit">
+                {router.query.id ? "Update" : "Create"}
+              </button>
             </div>
           </form>
         </div>

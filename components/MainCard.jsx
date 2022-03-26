@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import styles from "./../styles/mainCard.module.scss";
 import moment from "moment";
@@ -10,10 +10,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames";
 import Delete from "./Utils/Modal/Delete";
+import { useRouter } from "next/router";
 
 const MainCard = ({ post }) => {
   const [id, setId] = useState(null);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+  const router = useRouter();
 
   return (
     <>
@@ -60,6 +62,9 @@ const MainCard = ({ post }) => {
               </div>
               <div className={styles.actions}>
                 <FontAwesomeIcon
+                  onClick={() => {
+                    router.push(`/posts/create?id=${post._id}`);
+                  }}
                   icon={faEdit}
                   className={classNames(styles.icon, styles.edit)}
                 />
