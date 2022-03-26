@@ -34,26 +34,6 @@ const Navbar = () => {
               <a>Home</a>
             </Link>
           </div>
-          {/* <div className={styles.link}>
-            <Link href="/">
-              <a>About us</a>
-            </Link>
-          </div>
-          <div className={styles.link}>
-            <Link href="/">
-              <a>Services</a>
-            </Link>
-          </div>
-          <div className={styles.link}>
-            <Link href="/">
-              <a>Blogs</a>
-            </Link>
-          </div>
-          <div className={styles.link}>
-            <Link href="/">
-              <a>Contact us</a>
-            </Link>
-          </div> */}
 
           <div className={styles.link}>
             <Link href="/feeds">
@@ -64,8 +44,8 @@ const Navbar = () => {
           {checkJwtToken() ? (
             <>
               <div className={styles.link}>
-                <Link href="/posts">
-                  <a>Post</a>
+                <Link href="/profile">
+                  <a>Profile</a>
                 </Link>
               </div>
 
