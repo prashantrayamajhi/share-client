@@ -7,6 +7,7 @@ const Service = () => {
     {
       img: "/fund-raiser.png",
       title: "Idea Feeds",
+      link: "/feeds",
     },
     {
       img: "/idea-feeds.png",
@@ -15,6 +16,7 @@ const Service = () => {
     {
       img: "/pitch-investor.png",
       title: "Fund Raiser",
+      link: "/posts/create",
     },
     {
       img: "/startup-marketplace.png",
@@ -27,7 +29,12 @@ const Service = () => {
         <div className={styles.serviceWrapper}>
           {items.map((item) => {
             return (
-              <Card key={item.title} title={item.title} image={item.img} />
+              <Card
+                key={item.title}
+                title={item.title}
+                image={item.img}
+                link={item.link ? item.link : null}
+              />
             );
           })}
         </div>
