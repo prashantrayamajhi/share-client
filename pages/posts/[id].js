@@ -5,15 +5,17 @@ import Layout from "../../components/Layout";
 import Navbar from "../../components/Navbar";
 import marked from "marked";
 import styles from "./../../styles/post.module.scss";
+import formStyles from "./../../styles/form/form.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckDouble, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
   faInstagram,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
-
 import Link from "next/link";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+import InvestorForm from "../../components/InvestorForm";
 
 const Post = () => {
   const router = useRouter();
@@ -31,6 +33,7 @@ const Post = () => {
       fetchPost();
     }
   }, [router.query.id]);
+  const [showForm, setShowForm] = useState(false)
   return (
     <>
       <Navbar />
@@ -104,7 +107,30 @@ const Post = () => {
                   </div>
                 </div>
               </div>
+              <div className={formStyles.formContainer}>
+                <div className={formStyles.formHeading}>
+                  <span>
+                    {post.title} will be accepting investment soon.
+                  </span>
+                  <p>Be one of the first to know if they start accepting investment on Aavasar.</p>
+                </div>
+                <button className={formStyles.showFormButton} onClick={() => setShowForm(!showForm)}>
+                  {
 
+                    showForm ? <>
+                      <FontAwesomeIcon icon={faEyeSlash} className={formStyles.icon} />
+                      {'Hide Form'}
+                    </> : <>
+                      <FontAwesomeIcon icon={faCheckDouble} className={formStyles.icon} />
+                      {'I Would Invest'}
+                    </>
+
+                  }
+                </button>
+                {
+                  showForm && <InvestorForm title={post.title} />
+                }
+              </div>
               <div className={styles.content}>
                 <h2>Our Story</h2>
                 <article
