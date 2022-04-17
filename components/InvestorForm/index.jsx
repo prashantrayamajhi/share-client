@@ -4,28 +4,44 @@ import { useState } from "react";
 import { ShowToast } from "../ShowToast";
 import formStyles from "../../styles/form/form.module.scss";
 import { toast } from "react-toastify";
-export default function InvestorForm({ title }) {
+import Axios from "../../api/server";
+import { useRouter } from "next/router";
+
+export default function InvestorForm({ title, id }) {
+  const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
-  const onInvestFormSubmit = (event) => {
+  const onInvestFormSubmit = async (event) => {
+    // console.log("id", id);
     event.preventDefault();
-    console.log("values", investorForm);
     const { isTOSChecked } = investorForm;
     if (!isTOSChecked) {
       toast.error("Please agree to Terms and Conditions");
     } else {
       setSubmitting(true);
+      try {
+        const res = await Axios.post(`/posts/pitch/${id}`, investorForm);
+        console.log("response after submit", res);
+        if (res.status === 200) {
+          toast.success(res.data.msg || "Email sent successfully!!!");
+        }
+        event.target.reset();
+        setSubmitting(false);
+      } catch (e) {
+        console.log(e);
+        toast.error("Something went wrong!!!");
+        setSubmitting(false);
+      }
       // do api call and stuffs
       setSubmitting(false);
     }
   };
 
   const [investorForm, setInvestorForm] = useState({
-    investment: "",
     name: "",
-    address: "",
     email: "",
-    phone: "",
-    isLoading: false,
+    phoneNumber: "",
+    address: "",
+    investmentOffered: "",
     isTOSChecked: false,
     isMailListChecked: false,
   });
@@ -54,7 +70,7 @@ export default function InvestorForm({ title }) {
             required
             onChange={onFormDataEntry}
             type="Number"
-            name="investment"
+            name="investmentOffered"
             placeholder="Rs. 1,00,000"
           />
         </div>
@@ -98,7 +114,7 @@ export default function InvestorForm({ title }) {
             required
             onChange={onFormDataEntry}
             type="tel"
-            name="phone"
+            name="phoneNumber"
             placeholder="Phone Number"
           />
           <div
