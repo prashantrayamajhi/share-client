@@ -45,6 +45,7 @@ export default function InvestorForm({ title, id }) {
     isTOSChecked: false,
     isMailListChecked: false,
   });
+
   function onFormDataEntry(event) {
     const { target } = event;
     const { name, value } = target;
