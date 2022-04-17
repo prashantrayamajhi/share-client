@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ShowToast } from "../ShowToast";
 import formStyles from "../../styles/form/form.module.scss";
 import { toast } from "react-toastify";
+
 export default function InvestorForm({ title }) {
   const [submitting, setSubmitting] = useState(false);
   const onInvestFormSubmit = (event) => {
@@ -29,6 +30,7 @@ export default function InvestorForm({ title }) {
     isTOSChecked: false,
     isMailListChecked: false,
   });
+
   function onFormDataEntry(event) {
     const { target } = event;
     const { name, value } = target;
