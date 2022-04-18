@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+</head>
+
+<body>
+    <!-- TODO add a innerhtml to change the spam to the invertor name from server -->
+    <h1>You are sending a pitch request to <span id="Invertor"> //placeholder name//</span> </h1>
+    <div>
+        <b>Important Information</b>: To insure to get a valid pitch, we
+        <br> ask for name and email that allows us to identify you. We make
+        <br> your proposal of request is confidential and secured.
+        <br><br>
+        <div>
+            <form id="Personal">
+                <input type="text" placeholder="First name" required>
+                <input type="text" placeholder="Last name" required> <br><br>
+                <input type="email" placeholder="Email" required>
+            </form>
+        </div>
+        <form id="Business">
+            <div>
+                <h2>1. Select Business type</h2>
+                <input type="radio" id="Idea" name="type-business" value="Idea">
+                <label for="idea">Idea/Business plan</label> &nbsp&nbsp&nbsp&nbsp
+                <input type="radio" id="startup" name="type-business" value="startup">
+                <label for="startup">startup</label> &nbsp&nbsp&nbsp&nbsp
+                <input type="radio" id="Existing" name="type-business" value="Existing Business">
+                <label for="Existing Business">Existing Business</label>
+            </div>
+            <div>
+                <h2>2. Category of Business</h2>
+                <input type="text" placeholder="eg:Health sector" required>
+            </div>
+            <div>
+                <h2>3. Pitch title</h2>
+                <input type="text" required>
+            </div>
+            <div>
+                <!-- TODO add a limit if needed -->
+                <h2>4. Business Canvas</h2>
+                <input type="file" required> <br>Files:Word, Excel, Powerpoint &PDF. Max file size: 10MB
+            </div>
+            <div>
+                <h2>5. Proposal Report</h2>
+                <!-- TODO add a limit if needed -->
+                <input type="file" required> <br>Files:Word, Excel, Powerpoint &PDF. Max file size: 10MB
+            </div>
+            <div>
+                <input type="checkbox" id="Concent" name="concent-check" required>
+                <label for="Concent"> I provide the concent for procesing data to prepare an estimation of my project and/or contacting me</label><br><br>
+                <input type="checkbox" id="Policy" name="privacy-check" required>
+                <label for="Policy"> By clicking submit I acknowledge Avasar's <a href="/"> Privacy policy and Terms of use</a></label><br>
+            </div>
+        </form>
+        <!-- TODO add a function to submit the above forms to server -->
+        <input type="button" value="Submit">
+    </div>
+</body>
+
+</html>
