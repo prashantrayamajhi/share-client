@@ -18,7 +18,7 @@ export default function PitchInvestor({ user }) {
     } else {
       setSubmitting(true);
       try {
-        const res = await Axios.post(`/startup/pitch`, pitchForm);
+        const res = await Axios.post(`/posts/startup/pitch`, pitchForm);
         console.log("response after submit", res);
         if (res.status === 200) {
           toast.success(res.data.msg || "Email sent successfully!!!");
