@@ -98,3 +98,18 @@
     }
   }
 }
+
+.pitchFormContainer{
+  margin-top: -2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.pitchFormWrapper{
+  border: 2px solid $primary;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 60%;
+}

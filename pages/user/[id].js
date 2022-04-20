@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import Axios from "./../../api/server";
 import Layout from "../../components/Layout";
@@ -9,11 +9,13 @@ import profileStyles from "./../../styles/profile/profile.module.scss";
 import Banner from "./../../components/User/Banner";
 import Posts from "./../../components/User/Posts";
 import About from "./../../components/User/About";
+import PitchInvestor from "../../components/PitchInvestor";
 
 const User = () => {
   const router = useRouter();
+  const formRef = useRef()
   const [user, setUser] = useState(null);
-
+  const [showForm, setShowForm] = useState(false)
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -39,8 +41,19 @@ const User = () => {
           <Banner user={user} />
           <div className={profileStyles.profileContainer}>
             <Posts user={user} id={user._id} />
-            <About user={user} id={user._id} />
+            <About formRef={formRef} setShowForm={setShowForm} user={user} id={user._id} />
           </div>
+          {
+            showForm &&
+            (
+              <div className={profileStyles.pitchFormContainer}>
+                <h2 ref={formRef}>Please Fill The Form Below</h2>
+                <div className={profileStyles.pitchFormWrapper}>
+                  <PitchInvestor user={user} />
+                </div>
+              </div>
+            )
+          }
         </Layout>
       )}
     </>

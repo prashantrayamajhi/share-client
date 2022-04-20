@@ -3,7 +3,7 @@ import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames";
 import styles from "./../../styles/profile/profile.module.scss";
 
-const About = ({ user }) => {
+const About = ({ user, setShowForm, formRef }) => {
   return (
     user && (
       <>
@@ -46,7 +46,7 @@ const About = ({ user }) => {
             <div className={styles.pitch}>
               <button
                 onClick={() => {
-                  window.location.href = `mailto:${user.email}`;
+                  setShowForm((previousState) => !previousState);
                 }}
               >
                 Pitch Investor
