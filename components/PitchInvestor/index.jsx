@@ -38,6 +38,7 @@ export default function PitchInvestor({ user }) {
   const [pitchForm, setPitchForm] = useState({
     name: "",
     email: "",
+    investorEmail: user.email,
     businessType: "",
     category: "",
     pitchTitle: "",
