@@ -136,9 +136,13 @@ const Post = () => {
                     </>
                   )}
                 </button>
-                {
-                  showForm && <InvestorForm title={post.title} id={post._id} />
-                }
+                {showForm && (
+                  <InvestorForm
+                    title={post.title}
+                    id={post._id}
+                    startupEmail={post.user.email}
+                  />
+                )}
               </div>
               <div className={styles.content}>
                 <h2>Our Story</h2>

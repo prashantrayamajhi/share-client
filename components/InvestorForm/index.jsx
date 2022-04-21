@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import Axios from "../../api/server";
 import { useRouter } from "next/router";
 
-export default function InvestorForm({ title, id }) {
+export default function InvestorForm({ title, id, startupEmail }) {
   const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
   const onInvestFormSubmit = async (event) => {
@@ -39,6 +39,7 @@ export default function InvestorForm({ title, id }) {
   const [investorForm, setInvestorForm] = useState({
     name: "",
     email: "",
+    startupEmail,
     phoneNumber: "",
     address: "",
     investmentOffered: "",
